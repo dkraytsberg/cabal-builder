@@ -9,13 +9,14 @@
     border: 1px solid lightgrey;
 
     .ListItem {
-      padding: 2px;
+      padding: 0.25rem 0.5rem;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
 
       &:hover {
-        background-color: lightsteelblue;
+        background-color: darkred;
+        color: white;
       }
     }
   }

@@ -1,0 +1,16 @@
+.PhilosophySelect {
+  display: flex;
+  padding: 1rem 1rem 0;
+
+  .PhilosophyCard {
+    border: 1px solid lightgray;
+    padding: 1rem;
+    margin: 0 1rem 0 0;
+    cursor: pointer;
+    background-color: white;
+    &.selected {
+      background-color: darkred;
+      color: white;
+    }
+  }
+}

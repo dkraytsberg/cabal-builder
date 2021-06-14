@@ -5,4 +5,9 @@ body {
 
 .main-container {
   display: flex;
+  flex-direction: column;
+}
+
+.roster-container {
+  display: flex;
 }

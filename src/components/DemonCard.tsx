@@ -1,10 +1,11 @@
 import React from "react";
 import { DemonData } from "../types/DemonTypes";
+import { AbilityText, Section, Header } from "./library";
 import "./DemonCard.scss";
 
 interface DemonCardProps {
   demon: DemonData;
-  removeSelf: () => void;
+  removeSelf?: () => void;
 }
 
 const DemonCard: React.FC<DemonCardProps> = (props) => {
@@ -15,10 +16,12 @@ const DemonCard: React.FC<DemonCardProps> = (props) => {
   return (
     <div className="demon-card">
       <div className="header">
-        <h3 className="name">{name}</h3>
-        <button className="remove-button" onClick={removeSelf}>
-          &times;
-        </button>
+        <Header>{name}</Header>
+        {removeSelf && (
+          <button className="remove-button" onClick={removeSelf}>
+            &times;
+          </button>
+        )}
       </div>
       <div className="stats-container">
         <div>
@@ -34,10 +37,10 @@ const DemonCard: React.FC<DemonCardProps> = (props) => {
           <b>Life</b>: {life}
         </div>
       </div>
-      <div className="abilities-container">
+      <div>
         {abilities.map((a) => (
           // todo: add key
-          <div>{a}</div>
+          <AbilityText text={a} />
         ))}
       </div>
     </div>

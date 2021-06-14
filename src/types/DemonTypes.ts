@@ -6,6 +6,11 @@ export enum DemonType {
   Superior = "Superior",
 }
 
+export interface Ability {
+  text: string;
+  name: string;
+}
+
 export interface StatBlock {
   move: number;
   life: number;
