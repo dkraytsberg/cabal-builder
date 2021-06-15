@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  DemonData,
-  Philosophy,
-  DemonType,
-  LeaderDemonData,
-} from "./types/DemonTypes";
-import { philosophies, demons } from "./data/DemonData";
+import { DemonData } from "./types/DemonTypes";
 import Selector from "./components/Selector";
 import Roster from "./components/Roster";
 import LeaderCard from "./components/LeaderCard";
@@ -15,10 +9,6 @@ import LeaderSelect from "./components/LeaderSelect";
 import "./App.scss";
 
 function App() {
-  const leaders = demons.filter(
-    (d) => d.type === DemonType.Leader
-  ) as LeaderDemonData[];
-
   const [roster, setRoster] = React.useState<DemonData[]>([]);
 
   const addDemon = (demon: DemonData) => {
@@ -33,7 +23,7 @@ function App() {
   return (
     <div className="main-container">
       <div>
-        <LeaderSelect leaders={leaders} />
+        <LeaderSelect />
         <PhilosophySelect />
         <div>
           <LeaderCard />

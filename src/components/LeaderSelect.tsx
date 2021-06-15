@@ -6,11 +6,7 @@ import { LeaderDemonData, LeaderName } from "../types/DemonTypes";
 import { leaderDemonMap, leaderNames } from "../data/DemonData";
 import "./LeaderSelect.scss";
 
-interface LeaderSelectProps {
-  leaders: LeaderDemonData[];
-}
-
-const LeaderSelect: React.FC<LeaderSelectProps> = (props) => {
+const LeaderSelect: React.FC = (props) => {
   const dispatch = useDispatch();
 
   const currentLeader = useSelector<ReducerState, LeaderDemonData>(
