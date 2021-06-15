@@ -4,11 +4,9 @@ import {
   ActionType,
 } from "./types";
 
-import { LeaderDemonData, Philosophy } from "../types/DemonTypes";
+import { LeaderDemonData, Philosophy, LeaderName } from "../types/DemonTypes";
 
-export const selectLeader = (
-  leader: LeaderDemonData
-): UPDATE_LEADER_ACTION => ({
+export const selectLeader = (leader: LeaderName): UPDATE_LEADER_ACTION => ({
   type: ActionType.UPDATE_LEADER,
   payload: {
     leader,

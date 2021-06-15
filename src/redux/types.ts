@@ -1,9 +1,14 @@
-import { DemonData, Philosophy, LeaderDemonData } from "../types/DemonTypes";
+import {
+  DemonData,
+  Philosophy,
+  LeaderDemonData,
+  LeaderName,
+} from "../types/DemonTypes";
 
 export interface ReducerState {
   roster: DemonData[];
   philosophy: Philosophy;
-  leader: LeaderDemonData;
+  leader: LeaderName;
 }
 
 export enum ActionType {
@@ -20,7 +25,7 @@ export interface Action {
 export type UPDATE_LEADER_ACTION = {
   type: ActionType.UPDATE_LEADER;
   payload: {
-    leader: LeaderDemonData;
+    leader: LeaderName;
   };
 };
 

@@ -4,6 +4,7 @@ import {
   LeaderDemonData,
   DevoutDemonData,
   DemonType,
+  Warrior,
 } from "../types/DemonTypes";
 import { philosophies, demons } from "../data/DemonData";
 import { ReducerState, ActionType, ReducerAction, Action } from "./types";
@@ -15,7 +16,7 @@ const leaders = demons.filter(
 const initialState: ReducerState = {
   roster: [],
   philosophy: philosophies[0],
-  leader: leaders[0],
+  leader: Warrior,
 };
 
 const reducer = (state: ReducerState = initialState, action: ReducerAction) => {
