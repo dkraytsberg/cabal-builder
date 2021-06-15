@@ -10,15 +10,7 @@ import { ReducerState } from "../redux/types";
 import * as actions from "../redux/actions";
 import "./PhilosophySelect.scss";
 
-interface PhilosophySelectProps {
-  selected: Philosophy;
-  setSelected: (philosophy: Philosophy) => void;
-}
-
-const PhilosophySelect: React.FC<PhilosophySelectProps> = ({
-  selected,
-  setSelected,
-}) => {
+const PhilosophySelect: React.FC = () => {
   const dispatch = useDispatch();
 
   const currentPhilosopy = useSelector<ReducerState, Philosophy>(
@@ -42,7 +34,7 @@ const PhilosophySelect: React.FC<PhilosophySelectProps> = ({
           </div>
         ))}
       </div>
-      <h3>{selected.specialAbility}</h3>
+      <h3>{currentPhilosopy.specialAbility}</h3>
     </Fragment>
   );
 };

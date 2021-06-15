@@ -20,8 +20,6 @@ function App() {
   ) as LeaderDemonData[];
 
   const [roster, setRoster] = React.useState<DemonData[]>([]);
-  const [selectedPhilosophy, setSelectedPhilosophy] =
-    React.useState<Philosophy>(philosophies[0]);
 
   const addDemon = (demon: DemonData) => {
     setRoster([...roster, demon]);
@@ -31,14 +29,12 @@ function App() {
     const newDemonList = roster.slice(0, index).concat(roster.slice(index + 1));
     setRoster(newDemonList);
   };
+
   return (
     <div className="main-container">
       <div>
         <LeaderSelect leaders={leaders} />
-        <PhilosophySelect
-          selected={selectedPhilosophy}
-          setSelected={setSelectedPhilosophy}
-        />
+        <PhilosophySelect />
         <div>
           <LeaderCard />
           <DevoutCard />
