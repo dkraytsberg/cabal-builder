@@ -1,7 +1,11 @@
 import React, { Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { philosophies } from "../data/DemonData";
-import { Philosophy } from "../types/DemonTypes";
+import {
+  philosophies,
+  philosophyMap,
+  philosophyNames,
+} from "../data/DemonData";
+import { Philosophy, PhilosophyName } from "../types/DemonTypes";
 import { ReducerState } from "../redux/types";
 import * as actions from "../redux/actions";
 import "./PhilosophySelect.scss";
@@ -18,25 +22,23 @@ const PhilosophySelect: React.FC<PhilosophySelectProps> = ({
   const dispatch = useDispatch();
 
   const currentPhilosopy = useSelector<ReducerState, Philosophy>(
-    (state) => state.philosophy
+    (state) => philosophyMap[state.philosophy]
   );
 
-  const setPhilosophy = (philosophy: Philosophy) =>
+  const setPhilosophy = (philosophy: PhilosophyName) =>
     dispatch(actions.updatePhilosophy(philosophy));
 
   return (
     <Fragment>
       <div className="PhilosophySelect">
-        {philosophies.map((philosophy) => (
+        {philosophyNames.map((name) => (
           <div
             className={`PhilosophyCard ${
-              currentPhilosopy.name === philosophy.name
-                ? "selected"
-                : "unselected"
+              currentPhilosopy.name === name ? "selected" : "unselected"
             }`}
-            onClick={() => setPhilosophy(philosophy)}
+            onClick={() => setPhilosophy(name)}
           >
-            {philosophy.name}
+            {name}
           </div>
         ))}
       </div>

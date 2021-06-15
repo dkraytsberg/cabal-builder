@@ -1,13 +1,14 @@
 import {
   DemonData,
   Philosophy,
+  PhilosophyName,
   LeaderDemonData,
   LeaderName,
 } from "../types/DemonTypes";
 
 export interface ReducerState {
   roster: DemonData[];
-  philosophy: Philosophy;
+  philosophy: PhilosophyName;
   leader: LeaderName;
 }
 
@@ -32,7 +33,7 @@ export type UPDATE_LEADER_ACTION = {
 export type SET_PHILOSOPHY_ACTION = {
   type: ActionType.SET_PHILOSOPHY;
   payload: {
-    philosophy: Philosophy;
+    philosophy: PhilosophyName;
   };
 };
 

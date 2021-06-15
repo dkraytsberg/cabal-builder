@@ -456,6 +456,66 @@ export const demons: Array<Types.AnyDemonData> = [
   },
 ];
 
+export const philosophyNames: Types.PhilosophyName[] = [
+  Types.LordsOfHell,
+  Types.EarthBound,
+  Types.Demented,
+  Types.Brokers,
+  Types.Judges,
+  Types.TheEmpty,
+];
+
+export const philosophyMap: Record<Types.PhilosophyName, Types.Philosophy> = {
+  [Types.LordsOfHell]: {
+    name: Types.LordsOfHell,
+    leaderBonus:
+      "Imperious Nature - Your Leader's natural majesty and power is hard for others to overcome. Reduce the Combat Attack dice of any enemy attacking your Leader by 1.",
+    specialAbility:
+      "Charismatic Leader - When building your cabal, you may recruit one additional lesser Minion for free.",
+    devout: Types.LordOfThePit,
+  },
+  [Types.EarthBound]: {
+    name: Types.EarthBound,
+    leaderBonus:
+      "Quick Escape - The first time in a turn an enemy moves within 1” of your Leader, if your Leader has not yet activated, you may remove an unspent activation dice. If you do so, your Leader may immediately activate before the enemy makes any attacks and take their turn. They may only move during this turn.",
+    specialAbility:
+      "Ready to Move - Earth-Bound demons increase their Move ability by 1.",
+    devout: Types.Succubus,
+  },
+  [Types.Demented]: {
+    name: Types.Demented,
+    leaderBonus:
+      "Maddening Insight - When rolling initiative, as long as your Leader is alive, you may reroll any number of your initiative dice.",
+    specialAbility:
+      "Unpredictable Defense - When rolling your Combat Defense dice, if you roll any triples (only triples – quadruples, et al. do not count), you may deal an amount of damage back to the attacker equal to the face of the triple roll (i.e. if you roll three 4s, you deal 4 damage to the attacker). If you roll multiple triples (i.e. three 1s and three 5s), choose the highest face value and you deal that amount of damage.",
+    devout: Types.MadnessDemon,
+  },
+  [Types.Brokers]: {
+    name: Types.Brokers,
+    leaderBonus:
+      "Rich in Soul - Your Leader begins with a bonus Essence (you may choose two instead of one at creation).",
+    specialAbility:
+      "Tip the Scales - Each time you gain a Soul Dice, you may roll a d6. On a 5+, you gain one additional Soul Dice.",
+    devout: Types.Tallyman,
+  },
+  [Types.Judges]: {
+    name: Types.Judges,
+    leaderBonus:
+      "Breaking the Rules - The first time your Leader would be reduced to 0 Life, they are not. Any additional damage they suffer is negated from that attack and they are instead at 1 Life.",
+    specialAbility:
+      "Enforcing the Rules - Once per round, when an enemy demon makes a Combat Attack against a Judges demon, you may choose to Enforce the Rules. If you do, the attacker may not benefit from or activate any Special Abilities as part of the attack",
+    devout: Types.Executioner,
+  },
+  [Types.TheEmpty]: {
+    name: Types.TheEmpty,
+    leaderBonus:
+      "One with Nothing - Once per game, when your Leader activates, before any actions or move are taken, you may remove them from the game. During your next turn, you may allocate initiative to your Leader and replace them on the board anywhere more than 3” away from an enemy. The Leader may then act as normal for that activation.",
+    specialAbility:
+      "Burn it All - When any Empty demon is within 1” of an objective or a piece of terrain no larger than 4” by 4”, you may roll your Combat Attack dice instead of attacking. If you do so and roll at least two 6s, then that objective or piece of terrain is destroyed (in the case of terrain, remove the terrain and replace it with rubble of a similar size no more than 1” high).",
+    devout: Types.VoidDemon,
+  },
+};
+
 export const philosophies: Array<Types.Philosophy> = [
   {
     name: Types.LordsOfHell,
