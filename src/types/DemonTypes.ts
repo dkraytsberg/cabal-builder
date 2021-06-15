@@ -73,7 +73,7 @@ export const Brokers = "Brokers";
 export const Judges = "Judges";
 export const TheEmpty = "The Empty";
 
-type PhilosophyName =
+export type PhilosophyName =
   | typeof LordsOfHell
   | typeof EarthBound
   | typeof Demented
@@ -85,7 +85,7 @@ export const Warrior = "Warrior";
 export const Schemer = "Schemer";
 export const Zealot = "Zealot";
 
-type LeaderName = typeof Warrior | typeof Schemer | typeof Zealot;
+export type LeaderName = typeof Warrior | typeof Schemer | typeof Zealot;
 
 export const LordOfThePit = "Lord of the Pit";
 export const Succubus = "Succubus";
@@ -94,7 +94,7 @@ export const Tallyman = "Tallyman";
 export const Executioner = "Executioner";
 export const VoidDemon = "Void Demon";
 
-type DevoutName =
+export type DevoutName =
   | typeof LordOfThePit
   | typeof Succubus
   | typeof MadnessDemon
@@ -109,7 +109,7 @@ export const ArmoredDemon = "Armored Demon";
 export const SpinedDemon = "Spined Demon";
 export const CorpulentDemon = "Corpulent Demon";
 
-type LesserDemonName =
+export type LesserDemonName =
   | typeof SlaughterFiend
   | typeof Mephit
   | typeof TentacleBeast
@@ -121,7 +121,7 @@ export const TortureMaster = "Torture Master";
 export const SerpentKnight = "Serpent Knight";
 export const MarquessDWinter = "Marquess d'Winter";
 
-type GreaterDemonName =
+export type GreaterDemonName =
   | typeof TortureMaster
   | typeof SerpentKnight
   | typeof MarquessDWinter;
@@ -130,7 +130,7 @@ export const ShadowKing = "Shadow King";
 export const LordOfFlame = "Lord of Flame";
 export const VenomQueen = "Venom Queen";
 
-type SuperiorDemonName =
+export type SuperiorDemonName =
   | typeof ShadowKing
   | typeof LordOfFlame
   | typeof VenomQueen;

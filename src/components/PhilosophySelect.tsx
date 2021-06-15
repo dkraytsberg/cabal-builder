@@ -1,7 +1,9 @@
 import React, { Fragment } from "react";
-import DemonCard from "./DemonCard";
-import { philosophies, demons } from "../data/DemonData";
-import { Philosophy, DemonType } from "../types/DemonTypes";
+import { useSelector, useDispatch } from "react-redux";
+import { philosophies } from "../data/DemonData";
+import { Philosophy } from "../types/DemonTypes";
+import { ReducerState } from "../redux/types";
+import * as actions from "../redux/actions";
 import "./PhilosophySelect.scss";
 
 interface PhilosophySelectProps {
@@ -13,28 +15,32 @@ const PhilosophySelect: React.FC<PhilosophySelectProps> = ({
   selected,
   setSelected,
 }) => {
+  const dispatch = useDispatch();
+
+  const currentPhilosopy = useSelector<ReducerState, Philosophy>(
+    (state) => state.philosophy
+  );
+
+  const setPhilosophy = (philosophy: Philosophy) =>
+    dispatch(actions.updatePhilosophy(philosophy));
+
   return (
     <Fragment>
       <div className="PhilosophySelect">
         {philosophies.map((philosophy) => (
           <div
             className={`PhilosophyCard ${
-              selected.name === philosophy.name ? "selected" : "unselected"
+              currentPhilosopy.name === philosophy.name
+                ? "selected"
+                : "unselected"
             }`}
-            onClick={() => setSelected(philosophy)}
+            onClick={() => setPhilosophy(philosophy)}
           >
             {philosophy.name}
           </div>
         ))}
       </div>
       <h3>{selected.specialAbility}</h3>
-      {demons
-        .filter(
-          (d) => d.type === DemonType.Devout && selected.devout === d.name
-        )
-        .map((d) => (
-          <DemonCard demon={{ ...d, abilities: [...d.abilities] }} />
-        ))}
     </Fragment>
   );
 };

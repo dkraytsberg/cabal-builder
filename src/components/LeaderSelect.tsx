@@ -1,51 +1,37 @@
-import React, { Fragment } from "react";
-import DemonCard from "./DemonCard";
-import { demons } from "../data/DemonData";
-import {
-  DemonType,
-  DemonData,
-  Philosophy,
-  LeaderDemonData,
-} from "../types/DemonTypes";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { ReducerState } from "../redux/types";
+import * as actions from "../redux/actions";
+import { LeaderDemonData } from "../types/DemonTypes";
 import "./LeaderSelect.scss";
 
 interface LeaderSelectProps {
-  selectedPhilosophy: Philosophy;
-  selectedLeader: LeaderDemonData;
-  setSelectedLeader: (leader: LeaderDemonData) => void;
   leaders: LeaderDemonData[];
 }
 
-const LeaderSelect: React.FC<LeaderSelectProps> = ({
-  selectedPhilosophy,
-  selectedLeader,
-  setSelectedLeader,
-  leaders,
-}) => {
+const LeaderSelect: React.FC<LeaderSelectProps> = ({ leaders }) => {
+  const dispatch = useDispatch();
+
+  const currentLeader = useSelector<ReducerState, LeaderDemonData>(
+    (state) => state.leader
+  );
+
+  const selectLeader = (leader: LeaderDemonData) =>
+    dispatch(actions.selectLeader(leader));
+
   return (
-    <Fragment>
-      <div className="LeaderSelect">
-        {leaders.map((leader) => (
-          <div
-            className={`LeaderCard ${
-              selectedLeader.name === leader.name ? "selected" : "unselected"
-            }`}
-            onClick={() => setSelectedLeader(leader)}
-          >
-            {leader.name}
-          </div>
-        ))}
-      </div>
-      <DemonCard
-        demon={{
-          ...selectedLeader,
-          abilities: [
-            ...selectedLeader.abilities,
-            selectedPhilosophy.leaderBonus,
-          ],
-        }}
-      />
-    </Fragment>
+    <div className="LeaderSelect">
+      {leaders.map((leader) => (
+        <div
+          className={`LeaderCard ${
+            currentLeader.name === leader.name ? "selected" : "unselected"
+          }`}
+          onClick={() => selectLeader(leader)}
+        >
+          {leader.name}
+        </div>
+      ))}
+    </div>
   );
 };
 

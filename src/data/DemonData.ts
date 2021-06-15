@@ -1,5 +1,150 @@
 import * as Types from "../types/DemonTypes";
 
+export const leaderDemonMap: Record<Types.LeaderName, Types.LeaderDemonData> = {
+  [Types.Warrior]: {
+    cost: 0,
+    name: Types.Warrior,
+    type: Types.DemonType.Leader,
+    move: 6,
+    life: 15,
+    combat: 7,
+    abilities: [
+      "Combat Master - Whenever the Warrior makes a Combat roll (Attack or Defense), they may choose to change the value of any one combat dice to 6.",
+    ],
+  },
+  [Types.Schemer]: {
+    cost: 0,
+    name: Types.Schemer,
+    type: Types.DemonType.Leader,
+    move: 8,
+    life: 11,
+    combat: 5,
+    abilities: [
+      "Master Manipulator - Whenever the Schemer activates, he may choose to remove one die from your set of activation dice when his turn is complete. If he does so, another demon within 12” may instead be activated and take their turn immediately. In addition, once per round, when an enemy demon would attack the Schemer, the Schemer may choose to remove one unspent activation die. If he does so, he may move. The attacker may still choose to attack any other target in range after this move is completed.",
+    ],
+  },
+  [Types.Zealot]: {
+    cost: 0,
+    name: Types.Zealot,
+    type: Types.DemonType.Leader,
+    move: 7,
+    life: 13,
+    combat: 6,
+    abilities: [
+      "Frenzy - Whenever the Zealot makes a Combat Attack roll, they increase their combat score by 2. If they are attacking an enemy Leader, they instead increase their combat score by 3.",
+    ],
+  },
+};
+
+export const devoutDemonMap: Record<Types.DevoutName, Types.DevoutDemonData> = {
+  [Types.LordOfThePit]: {
+    cost: 0,
+    name: Types.LordOfThePit,
+    type: Types.DemonType.Devout,
+    move: 8,
+    life: 12,
+    combat: 7,
+    canFly: true,
+    abilities: [
+      "A Worthy Sacrifice - Once per game, you may destroy any friendly demon within 3” of this model. If you do so, the Lord of the Pit heals an amount of life equal to the destroyed demon's current life (you gain a Soul Dice as normal for slaying the demon)",
+      "Righteousness - The Lord of the Pit starts the battle with a Righteousness score of 0. Every time they slay an enemy model, they gain 1 Righteousness. Each time you make a Combat Dice roll, you may increase the result of a single die by an amount equal to the Lord of the Pit’s current Righteousness.",
+    ],
+    greaterEvolution: "You start the game with 1 Righteousness.",
+    superiorEvolution:
+      "Increase your Combat ability by 1 and increase your Life ability by 2.",
+    resourceAmount: 0,
+    resourcesName: "Righteousness",
+  },
+  [Types.Succubus]: {
+    cost: 0,
+    name: Types.Succubus,
+    type: Types.DemonType.Devout,
+    move: 6,
+    life: 9,
+    combat: 4,
+    canFly: true,
+    abilities: [
+      "Too Charming - Once per round, when the Succubus is within 3” of an enemy, as the demon’s action, they may Charm a single enemy. You may move that demon up to its normal Move ability and make a Combat Attack against any demon of your choice. ",
+      "Iniquity - Succubus starts the battle with an Iniquity score of 0. Every time a friendly model slays a demon, increase the Iniquity score by 1. Whenever damage is dealt to the Succubus, you may reduce the damage by an amount equal to or less than the Succubus’ current Iniquity score. If you do, reduce the succubus current Iniquity score by an amount equal to the damage prevented.",
+    ],
+    greaterEvolution: "Increase the Move ability of the Succubus by 2.",
+    superiorEvolution:
+      "When the Succubus uses her Too Charming ability, increase the Succubus’ Iniquity score by 2.",
+    resourceAmount: 0,
+    resourcesName: "Iniquity",
+  },
+  [Types.MadnessDemon]: {
+    cost: 0,
+    name: Types.MadnessDemon,
+    type: Types.DemonType.Devout,
+    move: 5,
+    life: 11,
+    combat: 3,
+    abilities: [
+      "Infected with Madness - Once per round, when an enemy is making a Combat Attack roll within 3” of the Madness Demon, before the roll is made, the Madness Demon can change the Combat Attack ability of the enemy to his own. This exchange lasts until the end of the round.",
+      "Disorder - The Madness Demon starts the battle with a Disorder score of 0. Every time during the game any Combat roll includes triple 1s (it must be a triple – quadruples, etc. do not count), the Disorder score increases by 1. The Madness Demon may add the Disorder score to their Combat Ability when making Combat Defense rolls.",
+    ],
+    greaterEvolution:
+      "The Madness Demon begins the game with a Disorder score of 1.",
+    superiorEvolution:
+      "Increase the Madness Demon's Life ability and Move ability by 1.",
+    resourceAmount: 0,
+    resourcesName: "Disorder",
+  },
+  [Types.Tallyman]: {
+    cost: 0,
+    name: Types.Tallyman,
+    type: Types.DemonType.Devout,
+    move: 4,
+    life: 11,
+    combat: 5,
+    abilities: [
+      "Balance the Scales - When the enemy spends a Soul Dice, you may roll a dice. On the result of a 4+, you gain one Soul Dice (immediately roll a dice and add it to your playsheet as though you had slain a demon).",
+      "Tax - The Tallyman starts the battle with a Tax score of 3. Every time a friendly model is slain, increase the Tax score of the Tallyman by 1. Whenever the Tallyman slays an enemy, you may roll a d6. If the result of that dice is less than or equal to the current Tax score, you gain an additional soul.",
+    ],
+    greaterEvolution: "Increase the Life ability and Combat ability by 1.",
+    superiorEvolution: "The Tallyman begins the game with a Tax score of 4.",
+    resourceAmount: 3,
+    resourcesName: "Tax",
+  },
+  [Types.Executioner]: {
+    cost: 0,
+    name: Types.Executioner,
+    type: Types.DemonType.Devout,
+    move: 5,
+    life: 12,
+    combat: 8,
+    abilities: [
+      "Off with their Head - When making a Combat Attack roll against an enemy with 4 or less Life remaining, the Executioner may reroll any of their Combat Attack dice.",
+      "Justice - The Executioner starts the battle with a Justice score of 0. Every time they slay an enemy model that has dealt any damage to your cabal, you gain 1 Justice. Each time you make a Combat Defense roll, you may increase the result of a single die by an amount equal to the Executioner’s current Justice. ",
+    ],
+    greaterEvolution:
+      "When making a Combat Attack roll, if the Executioner rolls three 6s, the attack deals double damage.",
+    superiorEvolution:
+      "Increase your Combat ability by 1 and the Executioner begins the game with 1 Justice.",
+    resourceAmount: 0,
+    resourcesName: "Justice",
+  },
+  [Types.VoidDemon]: {
+    cost: 0,
+    name: Types.VoidDemon,
+    type: Types.DemonType.Devout,
+    move: 8,
+    life: 10,
+    combat: 7,
+    abilities: [
+      "One With Nothing - Once per game, when the Void Demon is slain, it is instead not slain and may be placed anywhere on the board, more than 3” away from any enemies. If the Void Demon is set up in this way, it has 5 Life and may not be healed by any method. ",
+      "Oblivion - The Void Demon starts the battle with an Oblivion score of 0. Every time a model is slain, increase the Void Demon’s Oblivion score by 1. When moving, the Void Demon may instead be removed from the board and set-up anywhere within a number of inches equal to their move ability plus their Oblivion score.",
+    ],
+    greaterEvolution:
+      "The Void Demon does not suffer any negative effects of area terrain (i.e. it can not be damaged, nor suffer any penalties from such terrain).",
+    superiorEvolution:
+      "The Void Demon begins the game with an Oblivion score of 2.",
+    resourceAmount: 0,
+    resourcesName: "Oblivion",
+  },
+};
+
 export const demons: Array<Types.AnyDemonData> = [
   {
     cost: 0,
