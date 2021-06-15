@@ -1,5 +1,11 @@
 import * as Types from "../types/DemonTypes";
 
+export const leaderNames: Types.LeaderName[] = [
+  Types.Warrior,
+  Types.Schemer,
+  Types.Zealot,
+];
+
 export const leaderDemonMap: Record<Types.LeaderName, Types.LeaderDemonData> = {
   [Types.Warrior]: {
     cost: 0,
@@ -35,6 +41,15 @@ export const leaderDemonMap: Record<Types.LeaderName, Types.LeaderDemonData> = {
     ],
   },
 };
+
+export const devoutNames: Types.DevoutName[] = [
+  Types.LordOfThePit,
+  Types.Succubus,
+  Types.MadnessDemon,
+  Types.Tallyman,
+  Types.Executioner,
+  Types.VoidDemon,
+];
 
 export const devoutDemonMap: Record<Types.DevoutName, Types.DevoutDemonData> = {
   [Types.LordOfThePit]: {
