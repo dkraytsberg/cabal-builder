@@ -1,8 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { ReducerState, EditableRosterDemon } from "../redux/types";
+import * as actions from "../redux/actions";
 import DemonCard from "./DemonCard";
-import { DemonData, DemonName } from "../types/DemonTypes";
+import { DemonData } from "../types/DemonTypes";
 import { rosterDemonMap } from "../data/DemonData";
 import "./Roster.scss";
 
@@ -12,6 +13,8 @@ interface RosterProps {
 }
 
 const Roster: React.FC<RosterProps> = (props) => {
+  const dispatch = useDispatch();
+
   const roster = useSelector<ReducerState, EditableRosterDemon[]>(
     (state) => state.roster
   );
@@ -19,15 +22,18 @@ const Roster: React.FC<RosterProps> = (props) => {
   return (
     <div className="Roster">
       <div>
-        <h3>COST: {props.demons.reduce((acc, d) => d.cost + acc, 0)}</h3>
+        <h3>
+          COST:{" "}
+          {roster.reduce((acc, d) => rosterDemonMap[d.name].cost + acc, 0)}
+        </h3>
       </div>
       {roster.map((d) => {
-        const { name } = d;
+        const { name, id } = d;
         return (
           <DemonCard
             demon={rosterDemonMap[name]}
-            removeSelf={() => {}}
-            key={d.id}
+            removeSelf={() => dispatch(actions.removeDemon(id))}
+            key={id}
           />
         );
       })}

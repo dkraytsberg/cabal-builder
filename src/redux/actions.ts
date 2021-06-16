@@ -3,6 +3,7 @@ import {
   SET_PHILOSOPHY_ACTION,
   ActionType,
   ADD_DEMON_ACTION,
+  REMOVE_DEMON_ACTION,
 } from "./types";
 
 import {
@@ -33,5 +34,12 @@ export const addDemon = (demon: RosterDemonName): ADD_DEMON_ACTION => ({
   type: ActionType.ADD_DEMON,
   payload: {
     demon,
+  },
+});
+
+export const removeDemon = (id: number): REMOVE_DEMON_ACTION => ({
+  type: ActionType.REMOVE_DEMON,
+  payload: {
+    id,
   },
 });

@@ -47,6 +47,18 @@ const reducer = (state: ReducerState = initialState, action: ReducerAction) => {
         roster: [...state.roster, editableDemon],
       };
     }
+
+    case ActionType.REMOVE_DEMON: {
+      const {
+        payload: { id },
+      } = action;
+
+      return {
+        ...state,
+        roster: state.roster.filter((demon) => demon.id !== id),
+      };
+    }
+
     default:
       return state;
   }

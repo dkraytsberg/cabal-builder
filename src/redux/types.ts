@@ -1,8 +1,5 @@
 import {
-  DemonData,
-  Philosophy,
   PhilosophyName,
-  LeaderDemonData,
   LeaderName,
   DemonName,
   RosterDemonName,
@@ -28,7 +25,7 @@ export enum ActionType {
   UPDATE_LEADER = "UPDATE_LEADER",
   SET_PHILOSOPHY = "SET_PHILOSOPHY",
   ADD_DEMON = "ADD_DEMON",
-  //   REMOVE_DEMON = "REMOVE_DEMON",
+  REMOVE_DEMON = "REMOVE_DEMON",
 }
 
 export interface Action {
@@ -56,7 +53,15 @@ export type ADD_DEMON_ACTION = {
   };
 };
 
+export type REMOVE_DEMON_ACTION = {
+  type: ActionType.REMOVE_DEMON;
+  payload: {
+    id: number;
+  };
+};
+
 export type ReducerAction =
   | UPDATE_LEADER_ACTION
   | SET_PHILOSOPHY_ACTION
-  | ADD_DEMON_ACTION;
+  | ADD_DEMON_ACTION
+  | REMOVE_DEMON_ACTION;
