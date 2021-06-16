@@ -1,7 +1,8 @@
 import React from "react";
-import { groupBy } from "lodash-es";
-import { demons } from "../data/DemonData";
-import { DemonType, DemonData } from "../types/DemonTypes";
+import { useDispatch } from "react-redux";
+import * as demonData from "../data/DemonData";
+import { DemonType, DemonData, RosterDemonName } from "../types/DemonTypes";
+import * as actions from "../redux/actions";
 import "./Selector.scss";
 
 interface SelectorProps {
@@ -9,32 +10,37 @@ interface SelectorProps {
 }
 
 const Selector: React.FC<SelectorProps> = (props) => {
-  const groupedDemons = groupBy(demons, (d) => d.type);
+  const dispatch = useDispatch();
 
-  const includedTypes = [
-    DemonType.Lesser,
-    DemonType.Greater,
-    DemonType.Superior,
+  const demonNamesByType = [
+    demonData.lesserDemonNames,
+    demonData.greaterDemonNames,
+    demonData.superiorDemonNames,
   ];
+
+  const demonTypes = [DemonType.Lesser, DemonType.Greater, DemonType.Superior];
+
+  const selectDemon = (name: RosterDemonName) =>
+    dispatch(actions.addDemon(name));
 
   return (
     <div className="Selector">
       <div>
         <ul className="DemonList">
-          {includedTypes.map((type) => (
-            <React.Fragment key={type}>
-              <h5>{type}</h5>
-              {groupedDemons[type].map((demon) => (
+          {demonNamesByType.map((demonNames, index) => (
+            <div>
+              <h3>{demonTypes[index]}</h3>
+              {demonNames.map((name) => (
                 <li
-                  key={demon.name}
+                  key={name}
                   className="ListItem"
-                  onClick={() => props.selectDemon(demon)}
+                  onClick={() => selectDemon(name)}
                 >
-                  <span>{demon.name}</span>
-                  <span>{demon.cost}</span>
+                  <span>{name}</span>
+                  <span>{demonData.rosterDemonMap[name].cost}</span>
                 </li>
               ))}
-            </React.Fragment>
+            </div>
           ))}
         </ul>
       </div>

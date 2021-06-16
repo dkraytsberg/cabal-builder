@@ -160,6 +160,202 @@ export const devoutDemonMap: Record<Types.DevoutName, Types.DevoutDemonData> = {
   },
 };
 
+export const lesserDemonNames: Types.LesserDemonName[] = [
+  Types.SlaughterFiend,
+  Types.Mephit,
+  Types.TentacleBeast,
+  Types.ArmoredDemon,
+  Types.SpinedDemon,
+  Types.CorpulentDemon,
+];
+
+export const greaterDemonNames: Types.GreaterDemonName[] = [
+  Types.TortureMaster,
+  Types.SerpentKnight,
+  Types.MarquessDWinter,
+];
+
+export const superiorDemonNames: Types.SuperiorDemonName[] = [
+  Types.ShadowKing,
+  Types.LordOfFlame,
+  Types.VenomQueen,
+];
+
+export const rosterDemonNames: Types.RosterDemonName[] = [
+  Types.SlaughterFiend,
+  Types.Mephit,
+  Types.TentacleBeast,
+  Types.ArmoredDemon,
+  Types.SpinedDemon,
+  Types.CorpulentDemon,
+  Types.TortureMaster,
+  Types.SerpentKnight,
+  Types.MarquessDWinter,
+  Types.ShadowKing,
+  Types.LordOfFlame,
+  Types.VenomQueen,
+];
+
+export const rosterDemonMap: Record<
+  Types.RosterDemonName,
+  Types.RosterDemonData
+> = {
+  [Types.SlaughterFiend]: {
+    name: Types.SlaughterFiend,
+    type: Types.DemonType.Lesser,
+    cost: 21,
+    move: 5,
+    life: 10,
+    combat: 6,
+    abilities: [
+      "Paragons of Slaughter - When the Slaughter Fiend uses Focused Combat, they gain +2 to their Combat ability for the Attack roll (they gain +1 to Combat Defense rolls as normal). ",
+    ],
+    greaterEvolution: "Increase the Combat ability by 1.",
+    superiorEvolution: "Increase the Combat ability and Life by 1.",
+  },
+  [Types.Mephit]: {
+    name: Types.Mephit,
+    type: Types.DemonType.Lesser,
+    cost: 16,
+    move: 9,
+    life: 7,
+    combat: 3,
+    canFly: true,
+    abilities: [
+      "Sting and Move - When using Running Skirmish, the Mephit may increase their Move ability by 3",
+    ],
+    greaterEvolution: "Increase the Move ability by 1",
+    superiorEvolution: "Increase the Move ability and the Combat ability by 1.",
+  },
+  [Types.TentacleBeast]: {
+    name: Types.TentacleBeast,
+    type: Types.DemonType.Lesser,
+    cost: 21,
+    move: 8,
+    life: 9,
+    combat: 4,
+    abilities: [
+      "Grappling Arms - Enemy demons within 1” of any Tentacle Beast reduce their Combat Ability by 1.",
+    ],
+    greaterEvolution: "Increase the Combat ability by 1.",
+    superiorEvolution:
+      "Increase the Move ability by 1 and the Tentacle Beast also reduces the Movement ability of all enemies within 1” by 3”.",
+  },
+  [Types.ArmoredDemon]: {
+    name: Types.ArmoredDemon,
+    type: Types.DemonType.Lesser,
+    cost: 22,
+    move: 4,
+    life: 13,
+    combat: 5,
+    abilities: [
+      "Steely Skin - When the Armored Demon rolls Combat Defense dice, they may choose to change the result of any one Combat Defense die to a 6.",
+    ],
+    greaterEvolution:
+      "When using Steely Skin, the Iron Demon may change the result of 2 Combat dice to a 6.",
+    superiorEvolution: "Increase the Combat ability and Life by 1.",
+  },
+  [Types.SpinedDemon]: {
+    name: Types.SpinedDemon,
+    type: Types.DemonType.Lesser,
+    cost: 19,
+    move: 6,
+    life: 7,
+    combat: 6,
+    abilities: [
+      "Impaling Charge - When the Spined Demon uses Charge, they may reroll up to 3 dice from their Combat Attack roll.",
+    ],
+    greaterEvolution: "Increase the Movement ability by 1.",
+    superiorEvolution:
+      "If the Spined Demon deals damage when making an attack, increase the damage dealt by 1.",
+  },
+  [Types.CorpulentDemon]: {
+    name: Types.CorpulentDemon,
+    type: Types.DemonType.Lesser,
+    cost: 17,
+    move: 4,
+    life: 15,
+    combat: 4,
+    abilities: [
+      "Pile of Flesh - When the Corpulent Demon activates, they heal 2 damage.",
+    ],
+    greaterEvolution: "Increase the Life ability by 2.",
+    superiorEvolution:
+      "When the Pile of Flesh ability triggers, it heals one additional Life.",
+  },
+  [Types.TortureMaster]: {
+    name: Types.TortureMaster,
+    type: Types.DemonType.Greater,
+    cost: 27,
+    move: 6,
+    life: 10,
+    combat: 6,
+    abilities: [
+      "Heed the Lash - When the Torture Master attacks, each Combat Attack dice that results in a 6 reduces either the Move, Life or Combat of the target by 1 for the rest of the game. When you reduce Life in this way, both their maximum and current Life ability are reduced by this amount.",
+    ],
+    superiorEvolution: "Increase the Combat ability and Life ability by 1.",
+  },
+  [Types.SerpentKnight]: {
+    name: Types.SerpentKnight,
+    type: Types.DemonType.Greater,
+    cost: 26,
+    move: 7,
+    life: 11,
+    combat: 7,
+    abilities: [
+      "Stinging Poison - When the Serpent Knight attacks, each Combat Attack dice that results in a 6 deals 2 damage instead of 1.",
+    ],
+    superiorEvolution: "Increase the Move ability by 2.",
+  },
+  [Types.MarquessDWinter]: {
+    name: Types.MarquessDWinter,
+    type: Types.DemonType.Greater,
+    cost: 24,
+    move: 4,
+    life: 11,
+    combat: 6,
+    abilities: [
+      "Touch of Winter - When another demon makes a Combat Attack roll against the Marquess d’Winter, increase the target number needed to hit by 1.",
+    ],
+    superiorEvolution: "Increase the Combat ability and Life ability by 1.",
+  },
+  [Types.ShadowKing]: {
+    name: Types.ShadowKing,
+    type: Types.DemonType.Superior,
+    cost: 33,
+    move: 7,
+    canFly: true,
+    life: 10,
+    combat: 6,
+    abilities: [
+      "Shadow and Smoke - Once per round, when the Shadow King is attacked, they may reduce all damage dealt to them by a single attacker to 0.",
+    ],
+  },
+  [Types.LordOfFlame]: {
+    name: Types.LordOfFlame,
+    type: Types.DemonType.Superior,
+    cost: 36,
+    move: 8,
+    canFly: true,
+    life: 11,
+    combat: 7,
+    abilities: [
+      "Ignition - When the Lord of Flame attacks, deal 1 damage to all demons within 3” of the Lord of Flame for each natural 6 rolled as part of the Combat Attack roll.",
+    ],
+  },
+  [Types.VenomQueen]: {
+    name: Types.VenomQueen,
+    type: Types.DemonType.Superior,
+    cost: 31,
+    move: 5,
+    life: 13,
+    combat: 5,
+    abilities: [
+      "Melting Touch - When the Venom Queen attacks, any enemy damaged suffers the same amount of damage dealt the next time they activate.",
+    ],
+  },
+};
+
 export const demons: Array<Types.AnyDemonData> = [
   {
     cost: 0,

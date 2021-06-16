@@ -1,5 +1,10 @@
 import { leaderNames, philosophyNames } from "../data/DemonData";
-import { ReducerState, ActionType, ReducerAction, Action } from "./types";
+import {
+  ReducerState,
+  ActionType,
+  ReducerAction,
+  EditableRosterDemon,
+} from "./types";
 
 const initialState: ReducerState = {
   roster: [],
@@ -25,6 +30,21 @@ const reducer = (state: ReducerState = initialState, action: ReducerAction) => {
       return {
         ...state,
         philosophy,
+      };
+    }
+    case ActionType.ADD_DEMON: {
+      const {
+        payload: { demon },
+      } = action;
+
+      const editableDemon: EditableRosterDemon = {
+        name: demon,
+        id: Math.random(),
+      };
+
+      return {
+        ...state,
+        roster: [...state.roster, editableDemon],
       };
     }
     default:

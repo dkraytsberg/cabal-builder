@@ -2,6 +2,7 @@ import {
   UPDATE_LEADER_ACTION,
   SET_PHILOSOPHY_ACTION,
   ActionType,
+  ADD_DEMON_ACTION,
 } from "./types";
 
 import {
@@ -9,6 +10,7 @@ import {
   Philosophy,
   LeaderName,
   PhilosophyName,
+  RosterDemonName,
 } from "../types/DemonTypes";
 
 export const selectLeader = (leader: LeaderName): UPDATE_LEADER_ACTION => ({
@@ -24,5 +26,12 @@ export const updatePhilosophy = (
   type: ActionType.SET_PHILOSOPHY,
   payload: {
     philosophy,
+  },
+});
+
+export const addDemon = (demon: RosterDemonName): ADD_DEMON_ACTION => ({
+  type: ActionType.ADD_DEMON,
+  payload: {
+    demon,
   },
 });

@@ -66,6 +66,11 @@ export type AnyDemonData =
   | GreaterDemonData
   | SuperiorDemonData;
 
+export type RosterDemonData =
+  | LesserDemonData
+  | GreaterDemonData
+  | SuperiorDemonData;
+
 export const LordsOfHell = "Lords of Hell";
 export const EarthBound = "Earth-Bound";
 export const Demented = "Demented";
@@ -141,3 +146,8 @@ export type DemonName =
   | SuperiorDemonName
   | LeaderName
   | DevoutName;
+
+export type RosterDemonName =
+  | LesserDemonName
+  | GreaterDemonName
+  | SuperiorDemonName;
