@@ -1,4 +1,9 @@
-import { leaderNames, philosophyNames } from "../data/DemonData";
+import {
+  leaderDemonMap,
+  leaderNames,
+  philosophyNames,
+  rosterDemonMap,
+} from "../data/DemonData";
 import {
   ReducerState,
   ActionType,
@@ -9,7 +14,11 @@ import {
 const initialState: ReducerState = {
   roster: [],
   philosophy: philosophyNames[0],
-  leader: leaderNames[0],
+  leader: {
+    name: leaderNames[0],
+    data: leaderDemonMap[leaderNames[0]],
+    leaderEssences: [],
+  },
 };
 
 const reducer = (state: ReducerState = initialState, action: ReducerAction) => {
@@ -20,7 +29,10 @@ const reducer = (state: ReducerState = initialState, action: ReducerAction) => {
       } = action;
       return {
         ...state,
-        leader,
+        leader: {
+          ...state.leader,
+          name: leader,
+        },
       };
     }
     case ActionType.SET_PHILOSOPHY: {
@@ -40,6 +52,8 @@ const reducer = (state: ReducerState = initialState, action: ReducerAction) => {
       const editableDemon: EditableRosterDemon = {
         name: demon,
         id: Math.random(),
+        evolution: null,
+        data: rosterDemonMap[demon],
       };
 
       return {

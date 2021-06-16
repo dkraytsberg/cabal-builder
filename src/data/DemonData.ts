@@ -763,74 +763,98 @@ export const philosophies: Array<Types.Philosophy> = [
   },
 ];
 
-export const leaderEssences: Types.Ability[] = [
-  { name: "Soul Of Lightning", text: "Increases your Leader’s Move by 1”" },
+export const leaderEssences: Types.LeaderEssenceAbility[] = [
+  {
+    name: "Soul Of Lightning",
+    text: "Increases your Leader’s Move by 1”",
+    type: Types.AbilityType.LeaderEssence,
+  },
   {
     name: "Poisoned Soul",
     text: "When your Leader is making a Combat Defense roll, if they roll any natural 6, the attacker suffers 2 damage.",
+    type: Types.AbilityType.LeaderEssence,
   },
-  { name: "Unyielding Essence", text: "Increases your Leader’s Life by 2." },
+  {
+    name: "Unyielding Essence",
+    text: "Increases your Leader’s Life by 2.",
+    type: Types.AbilityType.LeaderEssence,
+  },
   {
     name: "Eternal Mind",
     text: "When you roll your activation dice, you may select one dice and reroll it if your Leader has not been slain.",
+    type: Types.AbilityType.LeaderEssence,
   },
   {
     name: "Explosive Spirit",
     text: "When your Leader is slain, you may roll your Combat Dice. Each roll of 4+ deals 1 damage to each demon within 3” of your slain Leader. No Soul Dice is granted when this Leader is slain.",
+    type: Types.AbilityType.LeaderEssence,
   },
   {
     name: "Mending Soul",
     text: "When rolling on the Soul Loss table after the battle to determine the fate of your demons, you may reroll one fate roll for your cabal.",
+    type: Types.AbilityType.LeaderEssence,
   },
   {
     name: "Skirmish Spirit",
     text: "If your Leader uses Running Skirmish, their Move ability increases by 3” for that movement.",
+    type: Types.AbilityType.LeaderEssence,
   },
   {
     name: "Regenerating Soul",
     text: "When your Leader activates, they heal 1 Life. This has no effect if your Leader is at maximum Life.",
+    type: Types.AbilityType.LeaderEssence,
   },
   {
     name: "Steadfast Soul",
     text: "When your Leader uses Focused Combat, they may choose to change the result of any one Combat Defense die to a 6.",
+    type: Types.AbilityType.LeaderEssence,
   },
 ];
 
-export const leaderItems: Types.Ability[] = [
+export const leaderItems: Types.LeaderRelicAbility[] = [
   {
     name: "Soul Drinker",
     text: "When this demon makes a Combat Attack roll, each natural roll of 6 results in 2 damage instead of 1. If this demon’s attacks slay an enemy demon, the Leader heals 1 damage.",
+    type: Types.AbilityType.LeaderRelic,
   },
   {
     name: "Screaming Shield",
     text: "This demon may never be hit on anything lower than a 3+ (they may not be hit on 2).",
+    type: Types.AbilityType.LeaderRelic,
   },
   {
     name: "Infernal Armor",
     text: "Whenever this demon suffers damage as a result of a Combat Attack, reduce the damage this demon suffers by 1.",
+    type: Types.AbilityType.LeaderRelic,
   },
   {
     name: "Hammer of Thunder",
     text: "When this demon makes a Combat Attack roll, if any of the dice result in a natural 6, all enemies within 3” of this demon suffer 2 damage.",
+    type: Types.AbilityType.LeaderRelic,
   },
   {
     name: "Axe of Black Blood",
     text: "This demon increases their Combat score by 1 for Combat Attack rolls.",
+    type: Types.AbilityType.LeaderRelic,
   },
   {
     name: "Plate of Rime Ice",
     text: "When this demon makes a Combat Defense roll, if any of the dice result in a natural 6, the enemy reduces their Movement score to 0 as long as this demon remains within ½ inch of that model.",
+    type: Types.AbilityType.LeaderRelic,
   },
   {
     name: "Token of Luck",
     text: "Once per round, this demon may reroll a single dice. This may not be used for the initiative roll.",
+    type: Types.AbilityType.LeaderRelic,
   },
   {
     name: "Necklace of Adaptation",
     text: "This demon may roll twice when making a check for any terrain and select either result.",
+    type: Types.AbilityType.LeaderRelic,
   },
   {
     name: "Boots of Leaping",
     text: "This demon may ignore other demons when moving as though they had Fly. The demon may not end their move on another demon.",
+    type: Types.AbilityType.LeaderRelic,
   },
 ];

@@ -3,22 +3,57 @@ import {
   LeaderName,
   DemonName,
   RosterDemonName,
+  LesserDemonName,
+  DemonType,
+  LeaderEssenceAbility,
+  RosterDemonData,
+  DemonData,
+  LeaderDemonData,
+  LesserDemonData,
+  GreaterDemonData,
+  SuperiorDemonData,
 } from "../types/DemonTypes";
 
 export interface EditableDemon {
-  id: number;
   name: DemonName;
+  data: DemonData;
+}
+
+export interface EditableLeaderDemon extends EditableDemon {
+  name: LeaderName;
+  leaderEssences: LeaderEssenceAbility[];
+  data: LeaderDemonData;
 }
 
 export interface EditableRosterDemon extends EditableDemon {
   id: number;
   name: RosterDemonName;
+  evolution: DemonType | null;
+  data: RosterDemonData;
+}
+
+export interface EditableLesserDemon extends EditableRosterDemon {
+  name: LesserDemonName;
+  evolution: DemonType.Greater | DemonType.Superior | null;
+  data: LesserDemonData;
+}
+
+export interface EditableGreaterDemon extends EditableRosterDemon {
+  name: LesserDemonName;
+  evolution: DemonType.Superior | null;
+  data: GreaterDemonData;
+}
+
+export interface EditableSuperiorDemon extends EditableRosterDemon {
+  name: LesserDemonName;
+  evolution: null;
+  data: SuperiorDemonData;
 }
 
 export interface ReducerState {
   roster: EditableRosterDemon[];
   philosophy: PhilosophyName;
-  leader: LeaderName;
+  leader: EditableLeaderDemon;
 }
 
 export enum ActionType {

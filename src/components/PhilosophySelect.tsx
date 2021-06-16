@@ -1,21 +1,15 @@
 import React, { Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  philosophies,
-  philosophyMap,
-  philosophyNames,
-} from "../data/DemonData";
-import { Philosophy, PhilosophyName } from "../types/DemonTypes";
-import { ReducerState } from "../redux/types";
+import { philosophyNames } from "../data/DemonData";
+import { PhilosophyName } from "../types/DemonTypes";
 import * as actions from "../redux/actions";
+import * as selectors from "../redux/selectors";
 import "./PhilosophySelect.scss";
 
 const PhilosophySelect: React.FC = () => {
   const dispatch = useDispatch();
 
-  const currentPhilosopy = useSelector<ReducerState, Philosophy>(
-    (state) => philosophyMap[state.philosophy]
-  );
+  const currentPhilosopy = useSelector(selectors.selectPhilosopy);
 
   const setPhilosophy = (philosophy: PhilosophyName) =>
     dispatch(actions.updatePhilosophy(philosophy));

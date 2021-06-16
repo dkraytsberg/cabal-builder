@@ -1,17 +1,15 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { ReducerState } from "../redux/types";
 import * as actions from "../redux/actions";
-import { LeaderDemonData, LeaderName } from "../types/DemonTypes";
-import { leaderDemonMap, leaderNames } from "../data/DemonData";
+import * as selectors from "../redux/selectors";
+import { LeaderName } from "../types/DemonTypes";
+import { leaderNames } from "../data/DemonData";
 import "./LeaderSelect.scss";
 
-const LeaderSelect: React.FC = (props) => {
+const LeaderSelect: React.FC = () => {
   const dispatch = useDispatch();
 
-  const currentLeader = useSelector<ReducerState, LeaderDemonData>(
-    (state) => leaderDemonMap[state.leader]
-  );
+  const currentLeader = useSelector(selectors.selectLeader);
 
   const selectLeader = (leader: LeaderName) =>
     dispatch(actions.selectLeader(leader));

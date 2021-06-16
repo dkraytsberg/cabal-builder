@@ -6,9 +6,25 @@ export enum DemonType {
   Superior = "Superior",
 }
 
+export enum AbilityType {
+  LeaderEssence = "LeaderEssence",
+  LeaderRelic = "LeaderRelic",
+  Essence = "Essence",
+  Relic = "Relic",
+}
+
 export interface Ability {
   text: string;
   name: string;
+  type: AbilityType;
+}
+
+export interface LeaderEssenceAbility extends Ability {
+  type: AbilityType.LeaderEssence;
+}
+
+export interface LeaderRelicAbility extends Ability {
+  type: AbilityType.LeaderRelic;
 }
 
 export interface StatBlock {

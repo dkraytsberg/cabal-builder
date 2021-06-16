@@ -1,18 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { ReducerState } from "../redux/types";
+import * as selectors from "../redux/selectors";
 import DemonCard from "./DemonCard";
-import { Philosophy, LeaderDemonData } from "../types/DemonTypes";
-import { leaderDemonMap, philosophyMap } from "../data/DemonData";
 
 const LeaderCard: React.FC = () => {
-  const currentLeader = useSelector<ReducerState, LeaderDemonData>(
-    (state) => leaderDemonMap[state.leader]
-  );
-
-  const currentPhilosopy = useSelector<ReducerState, Philosophy>(
-    (state) => philosophyMap[state.philosophy]
-  );
+  const currentLeader = useSelector(selectors.selectLeader);
+  const currentPhilosopy = useSelector(selectors.selectPhilosopy);
 
   return (
     <DemonCard
