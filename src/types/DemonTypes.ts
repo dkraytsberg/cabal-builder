@@ -167,3 +167,24 @@ export type RosterDemonName =
   | LesserDemonName
   | GreaterDemonName
   | SuperiorDemonName;
+
+export const SoulOfLightning = "Soul Of Lightning";
+export const PoisonedSoul = "Poisoned Soul";
+export const UnyieldingEssence = "Unyielding Essence";
+export const EternalMind = "Eternal Mind";
+export const ExplosiveSpirit = "Explosive Spirit";
+export const MendingSoul = "Mending Soul";
+export const SkirmishSpirit = "Skirmish Spirit";
+export const RegeneratingSoul = "Regenerating Soul";
+export const SteadfastSoul = "Steadfast Soul";
+
+export type LeaderEssenceName =
+  | typeof SoulOfLightning
+  | typeof PoisonedSoul
+  | typeof UnyieldingEssence
+  | typeof EternalMind
+  | typeof ExplosiveSpirit
+  | typeof MendingSoul
+  | typeof SkirmishSpirit
+  | typeof RegeneratingSoul
+  | typeof SteadfastSoul;

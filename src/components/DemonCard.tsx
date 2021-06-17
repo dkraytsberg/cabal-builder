@@ -1,6 +1,6 @@
 import React from "react";
 import { DemonData } from "../types/DemonTypes";
-import { AbilityText, Section, Header } from "./library";
+import { AbilityText, Header } from "./library";
 import "./DemonCard.scss";
 
 interface DemonCardProps {
@@ -13,6 +13,7 @@ const DemonCard: React.FC<DemonCardProps> = (props) => {
     demon: { name, cost, move, combat, life, abilities, canFly },
     removeSelf,
   } = props;
+
   return (
     <div className="demon-card">
       <div className="header">

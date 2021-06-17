@@ -12,6 +12,7 @@ import {
   LesserDemonData,
   GreaterDemonData,
   SuperiorDemonData,
+  LeaderEssenceName,
 } from "../types/DemonTypes";
 
 export interface EditableDemon {
@@ -58,6 +59,8 @@ export interface ReducerState {
 
 export enum ActionType {
   UPDATE_LEADER = "UPDATE_LEADER",
+  ADD_LEADER_ESSENCE = "ADD_LEADER_ESSENCE",
+  REMOVE_LEADER_ESSENCE = "REMOVE_LEADER_ESSENCE",
   SET_PHILOSOPHY = "SET_PHILOSOPHY",
   ADD_DEMON = "ADD_DEMON",
   REMOVE_DEMON = "REMOVE_DEMON",
@@ -71,6 +74,20 @@ export type UPDATE_LEADER_ACTION = {
   type: ActionType.UPDATE_LEADER;
   payload: {
     leader: LeaderName;
+  };
+};
+
+export type ADD_LEADER_ESSENCE_ACTION = {
+  type: ActionType.ADD_LEADER_ESSENCE;
+  payload: {
+    essence: LeaderEssenceName;
+  };
+};
+
+export type REMOVE_LEADER_ESSENCE_ACTION = {
+  type: ActionType.REMOVE_LEADER_ESSENCE;
+  payload: {
+    essence: LeaderEssenceName;
   };
 };
 
@@ -97,6 +114,8 @@ export type REMOVE_DEMON_ACTION = {
 
 export type ReducerAction =
   | UPDATE_LEADER_ACTION
+  | ADD_LEADER_ESSENCE_ACTION
+  | REMOVE_LEADER_ESSENCE_ACTION
   | SET_PHILOSOPHY_ACTION
   | ADD_DEMON_ACTION
   | REMOVE_DEMON_ACTION;

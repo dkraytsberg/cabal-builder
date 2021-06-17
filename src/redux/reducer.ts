@@ -3,7 +3,9 @@ import {
   leaderNames,
   philosophyNames,
   rosterDemonMap,
+  leaderEssenceMap,
 } from "../data/DemonData";
+import { LeaderEssenceAbility } from "../types/DemonTypes";
 import {
   ReducerState,
   ActionType,
@@ -32,6 +34,30 @@ const reducer = (state: ReducerState = initialState, action: ReducerAction) => {
         leader: {
           ...state.leader,
           name: leader,
+          data: leaderDemonMap[leader],
+        },
+      };
+    }
+    case ActionType.ADD_LEADER_ESSENCE: {
+      return {
+        ...state,
+        leader: {
+          ...state.leader,
+          leaderEssences: [
+            ...state.leader.leaderEssences,
+            leaderEssenceMap[action.payload.essence],
+          ],
+        },
+      };
+    }
+    case ActionType.REMOVE_LEADER_ESSENCE: {
+      return {
+        ...state,
+        leader: {
+          ...state.leader,
+          leaderEssences: state.leader.leaderEssences.filter(
+            (e) => e.name !== action.payload.essence
+          ),
         },
       };
     }

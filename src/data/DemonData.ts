@@ -763,53 +763,68 @@ export const philosophies: Array<Types.Philosophy> = [
   },
 ];
 
-export const leaderEssences: Types.LeaderEssenceAbility[] = [
-  {
-    name: "Soul Of Lightning",
+export const leaderEssenceNames: Types.LeaderEssenceName[] = [
+  Types.SoulOfLightning,
+  Types.PoisonedSoul,
+  Types.UnyieldingEssence,
+  Types.EternalMind,
+  Types.ExplosiveSpirit,
+  Types.MendingSoul,
+  Types.SkirmishSpirit,
+  Types.RegeneratingSoul,
+  Types.SteadfastSoul,
+];
+
+export const leaderEssenceMap: Record<
+  Types.LeaderEssenceName,
+  Types.LeaderEssenceAbility
+> = {
+  [Types.SoulOfLightning]: {
+    name: Types.SoulOfLightning,
     text: "Increases your Leader’s Move by 1”",
     type: Types.AbilityType.LeaderEssence,
   },
-  {
-    name: "Poisoned Soul",
+  [Types.PoisonedSoul]: {
+    name: Types.PoisonedSoul,
     text: "When your Leader is making a Combat Defense roll, if they roll any natural 6, the attacker suffers 2 damage.",
     type: Types.AbilityType.LeaderEssence,
   },
-  {
-    name: "Unyielding Essence",
+  [Types.UnyieldingEssence]: {
+    name: Types.UnyieldingEssence,
     text: "Increases your Leader’s Life by 2.",
     type: Types.AbilityType.LeaderEssence,
   },
-  {
-    name: "Eternal Mind",
+  [Types.EternalMind]: {
+    name: Types.EternalMind,
     text: "When you roll your activation dice, you may select one dice and reroll it if your Leader has not been slain.",
     type: Types.AbilityType.LeaderEssence,
   },
-  {
-    name: "Explosive Spirit",
+  [Types.ExplosiveSpirit]: {
+    name: Types.ExplosiveSpirit,
     text: "When your Leader is slain, you may roll your Combat Dice. Each roll of 4+ deals 1 damage to each demon within 3” of your slain Leader. No Soul Dice is granted when this Leader is slain.",
     type: Types.AbilityType.LeaderEssence,
   },
-  {
-    name: "Mending Soul",
+  [Types.MendingSoul]: {
+    name: Types.MendingSoul,
     text: "When rolling on the Soul Loss table after the battle to determine the fate of your demons, you may reroll one fate roll for your cabal.",
     type: Types.AbilityType.LeaderEssence,
   },
-  {
-    name: "Skirmish Spirit",
+  [Types.SkirmishSpirit]: {
+    name: Types.SkirmishSpirit,
     text: "If your Leader uses Running Skirmish, their Move ability increases by 3” for that movement.",
     type: Types.AbilityType.LeaderEssence,
   },
-  {
-    name: "Regenerating Soul",
+  [Types.RegeneratingSoul]: {
+    name: Types.RegeneratingSoul,
     text: "When your Leader activates, they heal 1 Life. This has no effect if your Leader is at maximum Life.",
     type: Types.AbilityType.LeaderEssence,
   },
-  {
-    name: "Steadfast Soul",
+  [Types.SteadfastSoul]: {
+    name: Types.SteadfastSoul,
     text: "When your Leader uses Focused Combat, they may choose to change the result of any one Combat Defense die to a 6.",
     type: Types.AbilityType.LeaderEssence,
   },
-];
+};
 
 export const leaderItems: Types.LeaderRelicAbility[] = [
   {
