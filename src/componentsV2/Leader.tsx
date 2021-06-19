@@ -1,8 +1,10 @@
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   leaderEssenceMap,
   leaderEssenceNames,
-  LeaderRelicNames,
+  leaderRelicMap,
+  leaderRelicNames,
 } from "../data/DemonData";
 
 import * as selectors from "../redux/selectors";
@@ -12,10 +14,9 @@ import {
   LeaderEssenceAbility,
   LeaderEssenceName,
   LeaderRelicName,
+  LeaderRelicAbility,
 } from "../types/DemonTypes";
-import AbilitySelector from "./AbilitySelector";
 import Select from "./Select";
-import React, { EventHandler, MouseEventHandler } from "react";
 
 const Leader: React.FC = () => {
   const leader = useSelector(selectors.selectLeader);
@@ -25,11 +26,12 @@ const Leader: React.FC = () => {
     name,
     data: { move, life, combat, abilities },
     leaderEssence,
+    leaderRelic,
   } = leader;
 
   const selectAbility = (name: AbilityName) => {
-    if (LeaderRelicNames.includes(name as LeaderRelicName)) {
-      console.log("relic");
+    if (leaderRelicNames.includes(name as LeaderRelicName)) {
+      dispatch(actions.setLeaderRelic(name as LeaderRelicName));
     } else if (leaderEssenceNames.includes(name as LeaderEssenceName)) {
       dispatch(actions.setLeaderEssence(name as LeaderEssenceName));
     }
@@ -40,12 +42,16 @@ const Leader: React.FC = () => {
     dispatch(actions.removeLeaderEssence());
   };
 
+  const removeRelic = (e: React.SyntheticEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    dispatch(actions.removeLeaderRelic());
+  };
+
   return (
     <div>
       <header>
         <h2>{name}</h2>
       </header>
-
       <section>
         <table>
           <tbody>
@@ -60,9 +66,7 @@ const Leader: React.FC = () => {
           </tbody>
         </table>
       </section>
-
       <br />
-
       <section>
         {abilities.map((a) => (
           <article>
@@ -86,6 +90,28 @@ const Leader: React.FC = () => {
             <Select<LeaderEssenceAbility>
               list={leaderEssenceNames.map((n) => leaderEssenceMap[n])}
               onSelect={selectAbility}
+              placeholder="add a leader essence..."
+            />
+          </aside>
+        )}
+
+        <br />
+
+        {leaderRelic ? (
+          <article>
+            <div>
+              <b>{leaderRelic.name}</b> - {leaderRelic.text}
+            </div>
+            <a href="" onClick={removeRelic}>
+              remove
+            </a>
+          </article>
+        ) : (
+          <aside>
+            <Select<LeaderRelicAbility>
+              list={leaderRelicNames.map((n) => leaderRelicMap[n])}
+              onSelect={selectAbility}
+              placeholder="add a leader relic..."
             />
           </aside>
         )}

@@ -4,9 +4,8 @@ import {
   philosophyNames,
   rosterDemonMap,
   leaderEssenceMap,
-  leaderEssenceNames,
+  leaderRelicMap,
 } from "../data/DemonData";
-import { LeaderEssenceAbility, LeaderEssenceName } from "../types/DemonTypes";
 import {
   ReducerState,
   ActionType,
@@ -22,6 +21,7 @@ const initialState: ReducerState = {
     data: leaderDemonMap[leaderNames[0]],
     leaderEssence: undefined,
     secondLeaderEssence: undefined,
+    leaderRelic: undefined,
   },
 };
 
@@ -40,6 +40,7 @@ const reducer = (state: ReducerState = initialState, action: ReducerAction) => {
         },
       };
     }
+
     case ActionType.SET_LEADER_ESSENCE: {
       return {
         ...state,
@@ -49,6 +50,7 @@ const reducer = (state: ReducerState = initialState, action: ReducerAction) => {
         },
       };
     }
+
     case ActionType.REMOVE_LEADER_ESSENCE: {
       return {
         ...state,
@@ -58,6 +60,27 @@ const reducer = (state: ReducerState = initialState, action: ReducerAction) => {
         },
       };
     }
+
+    case ActionType.SET_LEADER_RELIC: {
+      return {
+        ...state,
+        leader: {
+          ...state.leader,
+          leaderRelic: leaderRelicMap[action.payload.relic],
+        },
+      };
+    }
+
+    case ActionType.REMOVE_LEADER_RELIC: {
+      return {
+        ...state,
+        leader: {
+          ...state.leader,
+          leaderRelic: undefined,
+        },
+      };
+    }
+
     case ActionType.SET_PHILOSOPHY: {
       const {
         payload: { philosophy },
@@ -67,6 +90,7 @@ const reducer = (state: ReducerState = initialState, action: ReducerAction) => {
         philosophy,
       };
     }
+
     case ActionType.ADD_DEMON: {
       const {
         payload: { demon },

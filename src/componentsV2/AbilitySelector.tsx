@@ -3,7 +3,7 @@ import {
   leaderEssenceMap,
   leaderEssenceNames,
   leaderRelicMap,
-  LeaderRelicNames,
+  leaderRelicNames,
 } from "../data/DemonData";
 import { AbilityName, DemonData, DemonType } from "../types/DemonTypes";
 
@@ -41,7 +41,7 @@ const AbilitySelector: React.FC<AbilitySelectorProps> = ({
               })}
             </optgroup>
             <optgroup label="Leader Relics">
-              {LeaderRelicNames.map((relicName) => {
+              {leaderRelicNames.map((relicName) => {
                 const { name, text } = leaderRelicMap[relicName];
                 return (
                   <option value={name} key={name}>

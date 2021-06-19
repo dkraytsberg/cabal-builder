@@ -6,6 +6,8 @@ import {
   REMOVE_DEMON_ACTION,
   SET_LEADER_ESSENCE_ACTION,
   REMOVE_LEADER_ESSENCE_ACTION,
+  SET_LEADER_RELIC_ACTION,
+  REMOVE_LEADER_RELIC_ACTION,
 } from "./types";
 
 import {
@@ -15,6 +17,7 @@ import {
   PhilosophyName,
   RosterDemonName,
   LeaderEssenceName,
+  LeaderRelicName,
 } from "../types/DemonTypes";
 
 export const selectLeader = (leader: LeaderName): UPDATE_LEADER_ACTION => ({
@@ -35,6 +38,20 @@ export const setLeaderEssence = (
 
 export const removeLeaderEssence = (): REMOVE_LEADER_ESSENCE_ACTION => ({
   type: ActionType.REMOVE_LEADER_ESSENCE,
+  payload: {},
+});
+
+export const setLeaderRelic = (
+  relic: LeaderRelicName
+): SET_LEADER_RELIC_ACTION => ({
+  type: ActionType.SET_LEADER_RELIC,
+  payload: {
+    relic,
+  },
+});
+
+export const removeLeaderRelic = (): REMOVE_LEADER_RELIC_ACTION => ({
+  type: ActionType.REMOVE_LEADER_RELIC,
   payload: {},
 });
 

@@ -934,7 +934,7 @@ export const leaderEssenceMap: Record<
   },
 };
 
-export const LeaderRelicNames: Types.LeaderRelicName[] = [
+export const leaderRelicNames: Types.LeaderRelicName[] = [
   Types.SoulDrinker,
   Types.ScreamingShield,
   Types.InfernalArmor,
