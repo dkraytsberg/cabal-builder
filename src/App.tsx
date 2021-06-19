@@ -2,7 +2,7 @@ import React from "react";
 import { DemonData } from "./types/DemonTypes";
 import Selector from "./components/Selector";
 import Roster from "./components/Roster";
-import DevoutCard from "./components/DevoutCard";
+import DevoutCard from "./componentsV2/DevoutCard";
 import PhilosophySelect from "./components/PhilosophySelect";
 import LeaderSelect from "./componentsV2/LeaderSelect";
 import Leader from "./componentsV2/Leader";
@@ -45,6 +45,8 @@ function App() {
       </nav>
       <main>
         <Leader />
+        <br />
+        <DevoutCard />
       </main>
     </div>
   );

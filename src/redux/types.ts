@@ -15,6 +15,8 @@ import {
   LeaderEssenceName,
   LeaderRelicAbility,
   LeaderRelicName,
+  DevoutDemonData,
+  DevoutName,
 } from "../types/DemonTypes";
 
 export interface EditableDemon {
@@ -28,6 +30,12 @@ export interface EditableLeaderDemon extends EditableDemon {
   secondLeaderEssence?: LeaderEssenceAbility;
   leaderRelic?: LeaderRelicAbility;
   data: LeaderDemonData;
+}
+
+export interface EditableDevoutDemon extends EditableDemon {
+  name: DevoutName;
+  evolution: DemonType.Greater | DemonType.Superior | null;
+  data: DevoutDemonData;
 }
 
 export interface EditableRosterDemon extends EditableDemon {
@@ -59,6 +67,7 @@ export interface ReducerState {
   roster: EditableRosterDemon[];
   philosophy: PhilosophyName;
   leader: EditableLeaderDemon;
+  devout: EditableDevoutDemon;
 }
 
 export enum ActionType {

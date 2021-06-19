@@ -5,7 +5,11 @@ import {
   rosterDemonMap,
   leaderEssenceMap,
   leaderRelicMap,
+  devoutDemonMap,
+  devoutNames,
+  philosophyMap,
 } from "../data/DemonData";
+
 import {
   ReducerState,
   ActionType,
@@ -22,6 +26,11 @@ const initialState: ReducerState = {
     leaderEssence: undefined,
     secondLeaderEssence: undefined,
     leaderRelic: undefined,
+  },
+  devout: {
+    name: devoutNames[0],
+    data: devoutDemonMap[devoutNames[0]],
+    evolution: null,
   },
 };
 
@@ -85,9 +94,16 @@ const reducer = (state: ReducerState = initialState, action: ReducerAction) => {
       const {
         payload: { philosophy },
       } = action;
+      const devoutName = philosophyMap[philosophy].devout;
+      const devoutData = devoutDemonMap[devoutName];
       return {
         ...state,
         philosophy,
+        devout: {
+          name: devoutName,
+          data: devoutData,
+          evolution: state.devout.evolution,
+        },
       };
     }
 

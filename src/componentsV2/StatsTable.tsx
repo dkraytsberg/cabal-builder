@@ -4,14 +4,17 @@ interface StatsTableProps {
   demon: DemonData;
 }
 const StatsTable: React.FC<StatsTableProps> = ({
-  demon: { move, life, combat },
+  demon: { move, life, combat, canFly },
 }) => (
   <section className="StatsTable">
     <table>
       <tbody>
         <tr>
           <th>M </th>
-          <td>{move}</td>
+          <td>
+            {move}
+            {canFly ? <span className="fly-tag"> Fly</span> : null}
+          </td>
           <th>L </th>
           <td>{life}</td>
           <th>C </th>

@@ -23,15 +23,16 @@ body {
   }
 }
 
-.Leader {
+.Leader,
+.DevoutCard {
   header > h2 {
     display: inline-block;
+    white-space: nowrap;
+    min-width: fit-content;
+    margin: 1rem 0;
   }
 
   header {
-    // display: flex;
-    // justify-content: space-between;
-    // align-items: center;
   }
 }
 
@@ -39,6 +40,10 @@ body {
   td,
   th {
     font-size: 1.5rem;
+  }
+
+  span.fly-tag {
+    font-size: small;
   }
 }
 
