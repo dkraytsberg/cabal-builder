@@ -4,7 +4,7 @@ import {
   ActionType,
   ADD_DEMON_ACTION,
   REMOVE_DEMON_ACTION,
-  ADD_LEADER_ESSENCE_ACTION,
+  SET_LEADER_ESSENCE_ACTION,
   REMOVE_LEADER_ESSENCE_ACTION,
 } from "./types";
 
@@ -24,22 +24,18 @@ export const selectLeader = (leader: LeaderName): UPDATE_LEADER_ACTION => ({
   },
 });
 
-export const addLeaderEssence = (
+export const setLeaderEssence = (
   essence: LeaderEssenceName
-): ADD_LEADER_ESSENCE_ACTION => ({
-  type: ActionType.ADD_LEADER_ESSENCE,
+): SET_LEADER_ESSENCE_ACTION => ({
+  type: ActionType.SET_LEADER_ESSENCE,
   payload: {
     essence,
   },
 });
 
-export const removeLeaderEssence = (
-  essence: LeaderEssenceName
-): REMOVE_LEADER_ESSENCE_ACTION => ({
+export const removeLeaderEssence = (): REMOVE_LEADER_ESSENCE_ACTION => ({
   type: ActionType.REMOVE_LEADER_ESSENCE,
-  payload: {
-    essence,
-  },
+  payload: {},
 });
 
 export const updatePhilosophy = (

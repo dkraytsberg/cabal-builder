@@ -22,7 +22,8 @@ export interface EditableDemon {
 
 export interface EditableLeaderDemon extends EditableDemon {
   name: LeaderName;
-  leaderEssences: LeaderEssenceAbility[];
+  leaderEssence?: LeaderEssenceAbility;
+  secondLeaderEssence?: LeaderEssenceAbility;
   data: LeaderDemonData;
 }
 
@@ -59,7 +60,7 @@ export interface ReducerState {
 
 export enum ActionType {
   UPDATE_LEADER = "UPDATE_LEADER",
-  ADD_LEADER_ESSENCE = "ADD_LEADER_ESSENCE",
+  SET_LEADER_ESSENCE = "SET_LEADER_ESSENCE",
   REMOVE_LEADER_ESSENCE = "REMOVE_LEADER_ESSENCE",
   SET_PHILOSOPHY = "SET_PHILOSOPHY",
   ADD_DEMON = "ADD_DEMON",
@@ -77,8 +78,8 @@ export type UPDATE_LEADER_ACTION = {
   };
 };
 
-export type ADD_LEADER_ESSENCE_ACTION = {
-  type: ActionType.ADD_LEADER_ESSENCE;
+export type SET_LEADER_ESSENCE_ACTION = {
+  type: ActionType.SET_LEADER_ESSENCE;
   payload: {
     essence: LeaderEssenceName;
   };
@@ -86,9 +87,7 @@ export type ADD_LEADER_ESSENCE_ACTION = {
 
 export type REMOVE_LEADER_ESSENCE_ACTION = {
   type: ActionType.REMOVE_LEADER_ESSENCE;
-  payload: {
-    essence: LeaderEssenceName;
-  };
+  payload: {};
 };
 
 export type SET_PHILOSOPHY_ACTION = {
@@ -114,7 +113,7 @@ export type REMOVE_DEMON_ACTION = {
 
 export type ReducerAction =
   | UPDATE_LEADER_ACTION
-  | ADD_LEADER_ESSENCE_ACTION
+  | SET_LEADER_ESSENCE_ACTION
   | REMOVE_LEADER_ESSENCE_ACTION
   | SET_PHILOSOPHY_ACTION
   | ADD_DEMON_ACTION

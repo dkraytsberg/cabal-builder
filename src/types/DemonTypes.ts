@@ -11,12 +11,26 @@ export enum AbilityType {
   LeaderRelic = "LeaderRelic",
   Essence = "Essence",
   Relic = "Relic",
+  SpecialAbility = "SpecialAbility",
+  LeaderBonus = "LeaderBonus",
+  Evolution = "Evolution",
+  PhilosophyAbility = "PhilosophyAbility",
+  SoulLoss = "SoulLoss",
+  Title = "Title",
+  AdvancementBenefit = "AdvancementBenefit",
 }
+
+// todo: add the other ability names
+export type AbilityName = LeaderEssenceName | LeaderRelicName | string;
 
 export interface Ability {
   text: string;
-  name: string;
+  name: AbilityName;
   type: AbilityType;
+}
+
+export interface SpecialAbility extends Ability {
+  type: AbilityType.SpecialAbility;
 }
 
 export interface LeaderEssenceAbility extends Ability {
@@ -45,7 +59,7 @@ export interface DemonData extends StatBlock {
   cost: number;
   name: DemonName;
   type: DemonType;
-  abilities: Array<string>;
+  abilities: Array<Ability>;
 }
 
 export type LeaderDemonData = DemonData & {
@@ -188,3 +202,24 @@ export type LeaderEssenceName =
   | typeof SkirmishSpirit
   | typeof RegeneratingSoul
   | typeof SteadfastSoul;
+
+export const SoulDrinker = "Soul Drinker";
+export const ScreamingShield = "Screaming Shield";
+export const InfernalArmor = "Infernal Armor";
+export const HammerOfThunder = "Hammer of Thunder";
+export const AxeOfBlackBlood = "Axe of Black Blood";
+export const PlateOfRimeIce = "Plate of Rime Ice";
+export const TokenOfLuck = "Token of Luck";
+export const NecklaceOfAdaptation = "Necklace of Adaptation";
+export const BootsOfLeaping = "Boots of Leaping";
+
+export type LeaderRelicName =
+  | typeof SoulDrinker
+  | typeof ScreamingShield
+  | typeof InfernalArmor
+  | typeof HammerOfThunder
+  | typeof AxeOfBlackBlood
+  | typeof PlateOfRimeIce
+  | typeof TokenOfLuck
+  | typeof NecklaceOfAdaptation
+  | typeof BootsOfLeaping;

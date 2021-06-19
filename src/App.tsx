@@ -2,11 +2,26 @@ import React from "react";
 import { DemonData } from "./types/DemonTypes";
 import Selector from "./components/Selector";
 import Roster from "./components/Roster";
-import LeaderCard from "./components/LeaderCard";
 import DevoutCard from "./components/DevoutCard";
 import PhilosophySelect from "./components/PhilosophySelect";
 import LeaderSelect from "./components/LeaderSelect";
+import Leader from "./componentsV2/Leader";
 import "./App.scss";
+
+/* <div>
+        <LeaderSelect />
+        <PhilosophySelect />
+        <div>
+          <LeaderCard />
+          <DevoutCard />
+        </div>
+      </div>
+      <div className="roster-container">
+        <Selector selectDemon={addDemon} />
+        <div>
+          <Roster demons={roster} removeDemon={removeDemon} />
+        </div>
+      </div> */
 
 function App() {
   const [roster, setRoster] = React.useState<DemonData[]>([]);
@@ -21,21 +36,8 @@ function App() {
   };
 
   return (
-    <div className="main-container">
-      <div>
-        <LeaderSelect />
-        <PhilosophySelect />
-        <div>
-          <LeaderCard />
-          <DevoutCard />
-        </div>
-      </div>
-      <div className="roster-container">
-        <Selector selectDemon={addDemon} />
-        <div>
-          <Roster demons={roster} removeDemon={removeDemon} />
-        </div>
-      </div>
+    <div>
+      <Leader />
     </div>
   );
 }

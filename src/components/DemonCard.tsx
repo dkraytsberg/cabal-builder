@@ -1,5 +1,5 @@
 import React from "react";
-import { DemonData } from "../types/DemonTypes";
+import { Ability, DemonData } from "../types/DemonTypes";
 import { AbilityText, Header } from "./library";
 import "./DemonCard.scss";
 
@@ -39,9 +39,11 @@ const DemonCard: React.FC<DemonCardProps> = (props) => {
         </div>
       </div>
       <div>
-        {abilities.map((a) => (
-          // todo: add key
-          <AbilityText text={a} />
+        {abilities.map((a: Ability) => (
+          <AbilityText
+            text={`TODO: make a prop ${a.name} - ${a.text}`}
+            key={a.name}
+          />
         ))}
       </div>
     </div>
