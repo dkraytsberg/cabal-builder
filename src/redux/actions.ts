@@ -11,8 +11,6 @@ import {
 } from "./types";
 
 import {
-  LeaderDemonData,
-  Philosophy,
   LeaderName,
   PhilosophyName,
   RosterDemonName,

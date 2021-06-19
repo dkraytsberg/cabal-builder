@@ -7,13 +7,19 @@ body {
   display: flex;
 
   nav {
-    min-width: 120px;
+    min-width: 150px;
     flex-grow: 0;
+    > h3 {
+      margin: 0.5rem 0;
+    }
   }
 
   @media print {
     [data-hide-on-print] {
       display: none;
+    }
+    .DemonCard {
+      page-break-inside: avoid;
     }
   }
 
@@ -24,22 +30,28 @@ body {
 }
 
 .Leader,
-.DevoutCard {
+.DemonCard {
   header > h2 {
     display: inline-block;
     white-space: nowrap;
     min-width: fit-content;
     margin: 1rem 0;
+    font-size: 18px;
   }
 
-  header {
+  header > a {
+    font-size: 14px;
+  }
+
+  article {
+    font-size: 14px;
   }
 }
 
 .StatsTable {
   td,
   th {
-    font-size: 1.5rem;
+    font-size: 16px;
   }
 
   span.fly-tag {
@@ -55,10 +67,20 @@ body {
     padding: 0.25rem;
     cursor: pointer;
     background-color: white;
+    border: 1px solid lightgray;
+
     &.unselected {
-      border: 1px solid lightgray;
+      &:hover {
+        background-color: lightgray;
+        color: black;
+      }
     }
+
     &.selected {
+      background-color: darkred;
+      color: white;
+    }
+    &.hoverable:hover {
       background-color: darkred;
       color: white;
     }
