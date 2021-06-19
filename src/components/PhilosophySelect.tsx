@@ -4,7 +4,6 @@ import { philosophyNames } from "../data/DemonData";
 import { PhilosophyName } from "../types/DemonTypes";
 import * as actions from "../redux/actions";
 import * as selectors from "../redux/selectors";
-import "./PhilosophySelect.scss";
 
 const PhilosophySelect: React.FC = () => {
   const dispatch = useDispatch();
@@ -16,10 +15,10 @@ const PhilosophySelect: React.FC = () => {
 
   return (
     <Fragment>
-      <div className="PhilosophySelect">
+      <section className="radio-select">
         {philosophyNames.map((name) => (
           <div
-            className={`PhilosophyCard ${
+            className={`radio-select__card ${
               currentPhilosopy.name === name ? "selected" : "unselected"
             }`}
             onClick={() => setPhilosophy(name)}
@@ -27,8 +26,7 @@ const PhilosophySelect: React.FC = () => {
             {name}
           </div>
         ))}
-      </div>
-      <h3>{currentPhilosopy.specialAbility}</h3>
+      </section>
     </Fragment>
   );
 };

@@ -4,7 +4,7 @@ import Selector from "./components/Selector";
 import Roster from "./components/Roster";
 import DevoutCard from "./components/DevoutCard";
 import PhilosophySelect from "./components/PhilosophySelect";
-import LeaderSelect from "./components/LeaderSelect";
+import LeaderSelect from "./componentsV2/LeaderSelect";
 import Leader from "./componentsV2/Leader";
 import "./App.scss";
 
@@ -36,8 +36,16 @@ function App() {
   };
 
   return (
-    <div>
-      <Leader />
+    <div className="App">
+      <nav data-hide-on-print>
+        <h3>Leader</h3>
+        <LeaderSelect />
+        <h3>Philosophy</h3>
+        <PhilosophySelect />
+      </nav>
+      <main>
+        <Leader />
+      </main>
     </div>
   );
 }

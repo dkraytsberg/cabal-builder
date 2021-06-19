@@ -3,11 +3,59 @@ body {
   font-family: Cambria, Georgia, serif;
 }
 
-.main-container {
+.App {
   display: flex;
-  flex-direction: column;
+
+  nav {
+    min-width: 120px;
+    flex-grow: 0;
+  }
+
+  @media print {
+    [data-hide-on-print] {
+      display: none;
+    }
+  }
+
+  main {
+    padding: 0 1rem;
+    flex-grow: 1;
+  }
 }
 
-.roster-container {
+.Leader {
+  header > h2 {
+    display: inline-block;
+  }
+
+  header {
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
+  }
+}
+
+.StatsTable {
+  td,
+  th {
+    font-size: 1.5rem;
+  }
+}
+
+.radio-select {
   display: flex;
+  flex-direction: column;
+
+  .radio-select__card {
+    padding: 0.25rem;
+    cursor: pointer;
+    background-color: white;
+    &.unselected {
+      border: 1px solid lightgray;
+    }
+    &.selected {
+      background-color: darkred;
+      color: white;
+    }
+  }
 }

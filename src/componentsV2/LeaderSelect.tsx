@@ -4,7 +4,6 @@ import * as actions from "../redux/actions";
 import * as selectors from "../redux/selectors";
 import { LeaderName } from "../types/DemonTypes";
 import { leaderNames } from "../data/DemonData";
-import "./LeaderSelect.scss";
 
 const LeaderSelect: React.FC = () => {
   const dispatch = useDispatch();
@@ -15,10 +14,10 @@ const LeaderSelect: React.FC = () => {
     dispatch(actions.selectLeader(leader));
 
   return (
-    <div className="LeaderSelect">
+    <section className="radio-select">
       {leaderNames.map((name) => (
         <div
-          className={`LeaderCard ${
+          className={`radio-select__card ${
             currentLeader.name === name ? "selected" : "unselected"
           }`}
           onClick={() => selectLeader(name)}
@@ -26,7 +25,7 @@ const LeaderSelect: React.FC = () => {
           {name}
         </div>
       ))}
-    </div>
+    </section>
   );
 };
 

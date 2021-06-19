@@ -17,9 +17,12 @@ import {
   LeaderRelicAbility,
 } from "../types/DemonTypes";
 import Select from "./Select";
+import StatsTable from "./StatsTable";
 
 const Leader: React.FC = () => {
   const leader = useSelector(selectors.selectLeader);
+  const currentPhilosopy = useSelector(selectors.selectPhilosopy);
+
   const dispatch = useDispatch();
 
   const {
@@ -28,6 +31,8 @@ const Leader: React.FC = () => {
     leaderEssence,
     leaderRelic,
   } = leader;
+
+  const { leaderBonus } = currentPhilosopy;
 
   const selectAbility = (name: AbilityName) => {
     if (leaderRelicNames.includes(name as LeaderRelicName)) {
@@ -48,24 +53,11 @@ const Leader: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="Leader">
       <header>
         <h2>{name}</h2>
+        <StatsTable demon={leader.data} />
       </header>
-      <section>
-        <table>
-          <tbody>
-            <tr>
-              <th>M</th>
-              <td>{move}</td>
-              <th>L</th>
-              <td>{life}</td>
-              <th>C</th>
-              <td>{combat}</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
       <br />
       <section>
         {abilities.map((a) => (
@@ -76,12 +68,18 @@ const Leader: React.FC = () => {
 
         <br />
 
+        <article>
+          <b>{leaderBonus.name}</b> - {leaderBonus.text}
+        </article>
+
+        <br />
+
         {leaderEssence ? (
           <article>
             <div>
               <b>{leaderEssence.name}</b> - {leaderEssence.text}
             </div>
-            <a href="" onClick={removeEssence}>
+            <a href="" onClick={removeEssence} data-hide-on-print>
               remove
             </a>
           </article>
@@ -102,7 +100,7 @@ const Leader: React.FC = () => {
             <div>
               <b>{leaderRelic.name}</b> - {leaderRelic.text}
             </div>
-            <a href="" onClick={removeRelic}>
+            <a href="" onClick={removeRelic} data-hide-on-print>
               remove
             </a>
           </article>

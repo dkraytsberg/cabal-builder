@@ -21,12 +21,21 @@ export enum AbilityType {
 }
 
 // todo: add the other ability names
-export type AbilityName = LeaderEssenceName | LeaderRelicName | string;
+export type AbilityName =
+  | LeaderEssenceName
+  | LeaderRelicName
+  | LeaderBonusName
+  | string;
 
 export interface Ability {
   text: string;
   name: AbilityName;
   type: AbilityType;
+}
+
+export interface LeaderBonus extends Ability {
+  type: AbilityType.LeaderBonus;
+  name: LeaderBonusName;
 }
 
 export interface SpecialAbility extends Ability {
@@ -51,7 +60,7 @@ export interface StatBlock {
 export interface Philosophy {
   name: PhilosophyName;
   devout: DevoutName;
-  leaderBonus: string;
+  leaderBonus: LeaderBonus;
   specialAbility: string;
 }
 
@@ -115,6 +124,21 @@ export type PhilosophyName =
   | typeof Brokers
   | typeof Judges
   | typeof TheEmpty;
+
+export const ImperiousNature = "Imperious Nature";
+export const QuickEscape = "Quick Escape";
+export const MaddeningInsight = "Maddening Insight";
+export const RichInSoul = "Rich in Soul";
+export const BreakingTheRules = "Breaking the Rules";
+export const OneWithNothingLeaderBonus = "One with Nothing";
+
+export type LeaderBonusName =
+  | typeof ImperiousNature
+  | typeof QuickEscape
+  | typeof MaddeningInsight
+  | typeof RichInSoul
+  | typeof BreakingTheRules
+  | typeof OneWithNothingLeaderBonus;
 
 export const Warrior = "Warrior";
 export const Schemer = "Schemer";
