@@ -1,10 +1,9 @@
-import DevoutCard from "./componentsV2/DevoutCard";
-import PhilosophySelect from "./componentsV2/PhilosophySelect";
-import LeaderSelect from "./componentsV2/LeaderSelect";
-import RosterPicker from "./componentsV2/RosterPicker";
-import Roster from "./componentsV2/Roster";
-
-import Leader from "./componentsV2/Leader";
+import DevoutCard from "./components/DevoutCard";
+import PhilosophySelect from "./components/PhilosophySelect";
+import LeaderSelect from "./components/LeaderSelect";
+import RosterPicker from "./components/RosterPicker";
+import Roster from "./components/Roster";
+import Leader from "./components/Leader";
 import "./App.scss";
 
 function App() {
