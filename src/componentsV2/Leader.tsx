@@ -65,15 +65,11 @@ const Leader: React.FC = () => {
             <b>{a.name}</b> - {a.text}
           </article>
         ))}
-
         <br />
-
         <article>
           <b>{leaderBonus.name}</b> - {leaderBonus.text}
         </article>
-
         <br />
-
         {leaderEssence ? (
           <article>
             <div>
@@ -84,7 +80,7 @@ const Leader: React.FC = () => {
             </a>
           </article>
         ) : (
-          <aside>
+          <aside data-hide-on-print>
             <Select<LeaderEssenceAbility>
               list={leaderEssenceNames.map((n) => leaderEssenceMap[n])}
               onSelect={selectAbility}
@@ -92,9 +88,7 @@ const Leader: React.FC = () => {
             />
           </aside>
         )}
-
         <br />
-
         {leaderRelic ? (
           <article>
             <div>
@@ -105,7 +99,7 @@ const Leader: React.FC = () => {
             </a>
           </article>
         ) : (
-          <aside>
+          <aside data-hide-on-print>
             <Select<LeaderRelicAbility>
               list={leaderRelicNames.map((n) => leaderRelicMap[n])}
               onSelect={selectAbility}

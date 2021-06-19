@@ -10,11 +10,11 @@ const StatsTable: React.FC<StatsTableProps> = ({
     <table>
       <tbody>
         <tr>
-          <th>M: </th>
+          <th>M </th>
           <td>{move}</td>
-          <th>L: </th>
+          <th>L </th>
           <td>{life}</td>
-          <th>C: </th>
+          <th>C </th>
           <td>{combat}</td>
         </tr>
       </tbody>
