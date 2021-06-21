@@ -23,12 +23,9 @@ const DemonCard: React.FC<DemonCardProps> = (props) => {
       <br />
       <section>
         {abilities.map((a) => (
-          <React.Fragment>
-            <article>
-              <b>{a.name}</b> - {a.text}
-            </article>
-            <br />
-          </React.Fragment>
+          <article>
+            <b>{a.name}</b> - {a.text}
+          </article>
         ))}
       </section>
     </div>

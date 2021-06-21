@@ -15,6 +15,7 @@ import {
   LeaderEssenceName,
   LeaderRelicName,
   LeaderRelicAbility,
+  EarthBound,
 } from "../types/DemonTypes";
 import Select from "./Select";
 import StatsTable from "./StatsTable";
@@ -27,12 +28,13 @@ const Leader: React.FC = () => {
 
   const {
     name,
-    data: { move, life, combat, abilities },
+    data: { abilities },
     leaderEssence,
+    secondaryLeaderEssence,
     leaderRelic,
   } = leader;
 
-  const { leaderBonus } = currentPhilosopy;
+  const { leaderBonus, name: philosophyName } = currentPhilosopy;
 
   const selectAbility = (name: AbilityName) => {
     if (leaderRelicNames.includes(name as LeaderRelicName)) {
@@ -42,15 +44,28 @@ const Leader: React.FC = () => {
     }
   };
 
+  const selectSecondaryEssence = (name: AbilityName) => {
+    dispatch(actions.setSecondaryLeaderEssence(name as LeaderEssenceName));
+  };
+
   const removeEssence = (e: React.SyntheticEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     dispatch(actions.removeLeaderEssence());
+  };
+
+  const removeSecondaryEssence = (
+    e: React.SyntheticEvent<HTMLAnchorElement>
+  ) => {
+    e.preventDefault();
+    dispatch(actions.removeSecondaryLeaderEssence());
   };
 
   const removeRelic = (e: React.SyntheticEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     dispatch(actions.removeLeaderRelic());
   };
+
+  const showSecondaryEssenceSelect = philosophyName === EarthBound;
 
   return (
     <div className="Leader">
@@ -65,11 +80,11 @@ const Leader: React.FC = () => {
             <b>{a.name}</b> - {a.text}
           </article>
         ))}
-        <br />
+
         <article>
           <b>{leaderBonus.name}</b> - {leaderBonus.text}
         </article>
-        <br />
+
         {leaderEssence ? (
           <article>
             <div>
@@ -88,7 +103,29 @@ const Leader: React.FC = () => {
             />
           </aside>
         )}
-        <br />
+
+        {showSecondaryEssenceSelect ? (
+          secondaryLeaderEssence ? (
+            <article>
+              <div>
+                <b>{secondaryLeaderEssence.name}</b> -{" "}
+                {secondaryLeaderEssence.text}
+              </div>
+              <a href="" onClick={removeSecondaryEssence} data-hide-on-print>
+                remove
+              </a>
+            </article>
+          ) : (
+            <aside data-hide-on-print>
+              <Select<LeaderEssenceAbility>
+                list={leaderEssenceNames.map((n) => leaderEssenceMap[n])}
+                onSelect={selectSecondaryEssence}
+                placeholder="add second leader essence..."
+              />
+            </aside>
+          )
+        ) : null}
+
         {leaderRelic ? (
           <article>
             <div>

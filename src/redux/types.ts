@@ -27,7 +27,7 @@ export interface EditableDemon {
 export interface EditableLeaderDemon extends EditableDemon {
   name: LeaderName;
   leaderEssence?: LeaderEssenceAbility;
-  secondLeaderEssence?: LeaderEssenceAbility;
+  secondaryLeaderEssence?: LeaderEssenceAbility;
   leaderRelic?: LeaderRelicAbility;
   data: LeaderDemonData;
 }
@@ -74,6 +74,8 @@ export enum ActionType {
   UPDATE_LEADER = "UPDATE_LEADER",
   SET_LEADER_ESSENCE = "SET_LEADER_ESSENCE",
   REMOVE_LEADER_ESSENCE = "REMOVE_LEADER_ESSENCE",
+  SET_SECONDARY_LEADER_ESSENCE = "SET_SECONDARY_LEADER_ESSENCE",
+  REMOVE_SECONDARY_LEADER_ESSENCE = "REMOVE_SECONDARY_LEADER_ESSENCE",
   SET_LEADER_RELIC = "SET_LEADER_RELIC",
   REMOVE_LEADER_RELIC = "REMOVE_LEADER_RELIC",
   SET_PHILOSOPHY = "SET_PHILOSOPHY",
@@ -101,6 +103,18 @@ export type SET_LEADER_ESSENCE_ACTION = {
 
 export type REMOVE_LEADER_ESSENCE_ACTION = {
   type: ActionType.REMOVE_LEADER_ESSENCE;
+  payload: {};
+};
+
+export type SET_SECONDARY_LEADER_ESSENCE_ACTION = {
+  type: ActionType.SET_SECONDARY_LEADER_ESSENCE;
+  payload: {
+    essence: LeaderEssenceName;
+  };
+};
+
+export type REMOVE_SECONDARY_LEADER_ESSENCE_ACTION = {
+  type: ActionType.REMOVE_SECONDARY_LEADER_ESSENCE;
   payload: {};
 };
 
@@ -141,6 +155,8 @@ export type ReducerAction =
   | UPDATE_LEADER_ACTION
   | SET_LEADER_ESSENCE_ACTION
   | REMOVE_LEADER_ESSENCE_ACTION
+  | SET_SECONDARY_LEADER_ESSENCE_ACTION
+  | REMOVE_SECONDARY_LEADER_ESSENCE_ACTION
   | SET_PHILOSOPHY_ACTION
   | SET_LEADER_RELIC_ACTION
   | REMOVE_LEADER_RELIC_ACTION

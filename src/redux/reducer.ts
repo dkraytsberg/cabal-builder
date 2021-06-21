@@ -24,7 +24,7 @@ const initialState: ReducerState = {
     name: leaderNames[0],
     data: leaderDemonMap[leaderNames[0]],
     leaderEssence: undefined,
-    secondLeaderEssence: undefined,
+    secondaryLeaderEssence: undefined,
     leaderRelic: undefined,
   },
   devout: {
@@ -70,6 +70,25 @@ const reducer = (state: ReducerState = initialState, action: ReducerAction) => {
       };
     }
 
+    case ActionType.SET_SECONDARY_LEADER_ESSENCE: {
+      return {
+        ...state,
+        leader: {
+          ...state.leader,
+          secondaryLeaderEssence: leaderEssenceMap[action.payload.essence],
+        },
+      };
+    }
+
+    case ActionType.REMOVE_SECONDARY_LEADER_ESSENCE: {
+      return {
+        ...state,
+        leader: {
+          ...state.leader,
+          secondaryLeaderEssence: undefined,
+        },
+      };
+    }
     case ActionType.SET_LEADER_RELIC: {
       return {
         ...state,

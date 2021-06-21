@@ -8,6 +8,8 @@ import {
   REMOVE_LEADER_ESSENCE_ACTION,
   SET_LEADER_RELIC_ACTION,
   REMOVE_LEADER_RELIC_ACTION,
+  SET_SECONDARY_LEADER_ESSENCE_ACTION,
+  REMOVE_SECONDARY_LEADER_ESSENCE_ACTION,
 } from "./types";
 
 import {
@@ -38,6 +40,21 @@ export const removeLeaderEssence = (): REMOVE_LEADER_ESSENCE_ACTION => ({
   type: ActionType.REMOVE_LEADER_ESSENCE,
   payload: {},
 });
+
+export const setSecondaryLeaderEssence = (
+  essence: LeaderEssenceName
+): SET_SECONDARY_LEADER_ESSENCE_ACTION => ({
+  type: ActionType.SET_SECONDARY_LEADER_ESSENCE,
+  payload: {
+    essence,
+  },
+});
+
+export const removeSecondaryLeaderEssence =
+  (): REMOVE_SECONDARY_LEADER_ESSENCE_ACTION => ({
+    type: ActionType.REMOVE_SECONDARY_LEADER_ESSENCE,
+    payload: {},
+  });
 
 export const setLeaderRelic = (
   relic: LeaderRelicName
