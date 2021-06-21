@@ -33,6 +33,7 @@ const DemonCard: React.FC<DemonCardProps> = (props) => {
             href="#"
             className="DemonCard__RemoveLink"
             onClick={remove}
+            data-hide-on-print
           >
             remove
           </a>
