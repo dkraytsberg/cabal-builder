@@ -15,7 +15,7 @@ import {
   LeaderEssenceName,
   LeaderRelicName,
   LeaderRelicAbility,
-  EarthBound,
+  Brokers,
 } from "../types/DemonTypes";
 import Select from "./Select";
 import StatsTable from "./StatsTable";
@@ -56,7 +56,7 @@ const Leader: React.FC = () => {
 
   const removeRelic = () => dispatch(actions.removeLeaderRelic());
 
-  const showSecondaryEssenceSelect = philosophyName === EarthBound;
+  const showSecondaryEssenceSelect = philosophyName === Brokers;
 
   return (
     <div className="Leader">
