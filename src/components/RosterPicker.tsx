@@ -12,6 +12,7 @@ const RosterPicker: React.FC = () => {
         <div
           className={`radio-select__card hoverable`}
           onClick={() => addDemon(name)}
+          key={name}
         >
           {name}
         </div>

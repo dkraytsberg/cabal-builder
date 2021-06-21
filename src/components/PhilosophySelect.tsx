@@ -22,6 +22,7 @@ const PhilosophySelect: React.FC = () => {
               currentPhilosopy.name === name ? "selected" : "unselected"
             }`}
             onClick={() => setPhilosophy(name)}
+            key={name}
           >
             {name}
           </div>

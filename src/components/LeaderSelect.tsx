@@ -21,6 +21,7 @@ const LeaderSelect: React.FC = () => {
             currentLeader.name === name ? "selected" : "unselected"
           }`}
           onClick={() => selectLeader(name)}
+          key={name}
         >
           {name}
         </div>

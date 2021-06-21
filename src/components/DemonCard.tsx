@@ -1,31 +1,49 @@
 import React from "react";
 import { EditableDemon } from "../redux/types";
 import StatsTable from "./StatsTable";
+import Ability from "./Ability";
 
 interface DemonCardProps {
   demon: EditableDemon;
+  removeDemon?: () => void;
 }
 
 const DemonCard: React.FC<DemonCardProps> = (props) => {
   const {
-    name,
-    data,
-    data: { abilities },
-  } = props.demon;
+    demon: {
+      name,
+      data,
+      data: { abilities },
+    },
+    removeDemon,
+  } = props;
+
+  const remove = (e: React.SyntheticEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    removeDemon && removeDemon();
+  };
 
   return (
     <div className="DemonCard">
       <header>
         <h2>{name}</h2>
-        <a href=""> remove</a>
+        {removeDemon && (
+          <a
+            role="button"
+            href="#"
+            className="DemonCard__RemoveLink"
+            onClick={remove}
+          >
+            remove
+          </a>
+        )}
+
         <StatsTable demon={data} />
       </header>
       <br />
       <section>
         {abilities.map((a) => (
-          <article>
-            <b>{a.name}</b> - {a.text}
-          </article>
+          <Ability ability={a} tag="Ability" key={a.name} />
         ))}
       </section>
     </div>

@@ -16,7 +16,7 @@ function Select<T extends Ability>(props: SelectProps<T>) {
         {props.placeholder}
       </option>
       {props.list.map((item) => (
-        <option value={item.name}>
+        <option value={item.name} key={item.name}>
           {item.name} - {item.text}
         </option>
       ))}

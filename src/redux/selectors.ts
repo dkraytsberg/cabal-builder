@@ -4,12 +4,8 @@ import {
   EditableDevoutDemon,
   ReducerState,
 } from "./types";
-import { LeaderDemonData, Philosophy } from "../types/DemonTypes";
-import {
-  devoutDemonMap,
-  leaderDemonMap,
-  philosophyMap,
-} from "../data/DemonData";
+import { Philosophy } from "../types/DemonTypes";
+import { philosophyMap } from "../data/DemonData";
 
 export const selectLeader = (state: ReducerState): EditableLeaderDemon =>
   state.leader;
