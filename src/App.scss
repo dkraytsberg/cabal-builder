@@ -21,6 +21,9 @@ body {
     .DemonCard {
       page-break-inside: avoid;
     }
+    .Roster {
+      page-break-before: always;
+    }
   }
 
   main {
@@ -29,8 +32,17 @@ body {
   }
 }
 
+.Ability {
+  i.tag {
+    padding: 0 2px;
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+}
+
 .Leader,
-.DemonCard {
+.DemonCard,
+.PhilosophyInfo {
   header > h2 {
     display: inline-block;
     white-space: nowrap;
@@ -47,11 +59,6 @@ body {
   aside {
     font-size: 14px;
     margin-bottom: 1rem;
-    i.tag {
-      padding: 0 2px;
-      font-size: 10px;
-      text-transform: uppercase;
-    }
   }
 }
 
@@ -80,7 +87,7 @@ body {
     padding: 0.25rem;
     cursor: pointer;
     background-color: white;
-    border: 1px solid lightgray;
+    border-bottom: 1px dashed black;
 
     &.unselected {
       &:hover {

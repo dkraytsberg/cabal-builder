@@ -50,6 +50,10 @@ export interface LeaderRelicAbility extends Ability {
   type: AbilityType.LeaderRelic;
 }
 
+export interface PhilosophySpecialAbility extends Ability {
+  type: AbilityType.PhilosophyAbility;
+}
+
 export interface StatBlock {
   move: number;
   life: number;
@@ -61,7 +65,7 @@ export interface Philosophy {
   name: PhilosophyName;
   devout: DevoutName;
   leaderBonus: LeaderBonus;
-  specialAbility: string;
+  specialAbility: PhilosophySpecialAbility;
 }
 
 export interface DemonData extends StatBlock {

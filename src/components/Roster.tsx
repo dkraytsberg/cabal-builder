@@ -9,7 +9,7 @@ const Roster: React.FC = () => {
 
   const removeDemon = (id: number) => dispatch(actions.removeDemon(id));
   return (
-    <div>
+    <div className="Roster">
       {roster.map((demon) => (
         <DemonCard
           demon={demon}

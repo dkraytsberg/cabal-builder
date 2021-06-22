@@ -4,6 +4,7 @@ import LeaderSelect from "./components/LeaderSelect";
 import RosterPicker from "./components/RosterPicker";
 import Roster from "./components/Roster";
 import Leader from "./components/Leader";
+import PhilosophyInfo from "./components/PhilosophyInfo";
 import "./App.scss";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <RosterPicker />
       </nav>
       <main>
+        <PhilosophyInfo />
         <Leader />
         <DevoutCard />
         <Roster />
