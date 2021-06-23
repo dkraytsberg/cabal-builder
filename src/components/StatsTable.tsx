@@ -4,7 +4,7 @@ interface StatsTableProps {
   demon: DemonData;
 }
 const StatsTable: React.FC<StatsTableProps> = ({
-  demon: { move, life, combat, canFly },
+  demon: { move, life, combat, cost, canFly },
 }) => (
   <section className="StatsTable">
     <table>

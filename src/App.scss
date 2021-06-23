@@ -30,7 +30,6 @@ body {
   }
 
   nav {
-    min-width: 150px;
     flex-grow: 0;
     > h3 {
       margin: 0.5rem 0;
@@ -86,6 +85,9 @@ body {
     cursor: pointer;
     background-color: white;
     border-bottom: 1px dashed black;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
 
     &.unselected {
       &:hover {

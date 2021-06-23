@@ -1,7 +1,8 @@
 import { useDispatch } from "react-redux";
-import { rosterDemonNames } from "../data/DemonData";
+import { rosterDemonMap, rosterDemonNames } from "../data/DemonData";
 import * as actions from "../redux/actions";
 import { RosterDemonName } from "../types/DemonTypes";
+import { InlineHeader } from "./lib/Typography";
 
 const RosterPicker: React.FC = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,8 @@ const RosterPicker: React.FC = () => {
           onClick={() => addDemon(name)}
           key={name}
         >
-          {name}
+          <InlineHeader>{name}</InlineHeader>&nbsp;
+          <span>{rosterDemonMap[name].cost}</span>
         </div>
       ))}
     </section>

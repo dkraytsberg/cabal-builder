@@ -4,6 +4,7 @@ import { philosophyNames } from "../data/DemonData";
 import { PhilosophyName } from "../types/DemonTypes";
 import * as actions from "../redux/actions";
 import * as selectors from "../redux/selectors";
+import { InlineHeader } from "./lib/Typography";
 
 const PhilosophySelect: React.FC = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const PhilosophySelect: React.FC = () => {
             onClick={() => setPhilosophy(name)}
             key={name}
           >
-            {name}
+            <InlineHeader>{name}</InlineHeader>
           </div>
         ))}
       </section>

@@ -2,7 +2,7 @@ import React from "react";
 import { EditableDemon } from "../redux/types";
 import StatsTable from "./StatsTable";
 import Ability from "./Ability";
-import { SectionHeader, Link } from "./lib/Typography";
+import { SectionHeader, Link, InlineTag } from "./lib/Typography";
 
 interface DemonCardProps {
   demon: EditableDemon;
@@ -14,7 +14,7 @@ const DemonCard: React.FC<DemonCardProps> = (props) => {
     demon: {
       name,
       data,
-      data: { abilities },
+      data: { abilities, cost },
     },
     removeDemon,
   } = props;
@@ -22,7 +22,9 @@ const DemonCard: React.FC<DemonCardProps> = (props) => {
   return (
     <div className="DemonCard">
       <header>
-        <SectionHeader>{name}</SectionHeader>
+        <SectionHeader>{name}</SectionHeader>{" "}
+        {cost ? <InlineTag>({cost})</InlineTag> : null}
+        &nbsp;
         {removeDemon && <Link onClick={removeDemon}>remove</Link>}
         <StatsTable demon={data} />
       </header>

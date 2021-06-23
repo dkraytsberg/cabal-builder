@@ -4,6 +4,7 @@ import * as actions from "../redux/actions";
 import * as selectors from "../redux/selectors";
 import { LeaderName } from "../types/DemonTypes";
 import { leaderNames } from "../data/DemonData";
+import { InlineHeader } from "./lib/Typography";
 
 const LeaderSelect: React.FC = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const LeaderSelect: React.FC = () => {
           onClick={() => selectLeader(name)}
           key={name}
         >
-          {name}
+          <InlineHeader>{name}</InlineHeader>
         </div>
       ))}
     </section>
