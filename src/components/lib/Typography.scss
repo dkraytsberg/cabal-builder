@@ -1,0 +1,27 @@
+.SectionHeader {
+  display: inline-block;
+  white-space: nowrap;
+  min-width: fit-content;
+  margin: 0.5rem 0;
+  font-size: 18px;
+}
+
+.InlineHeader {
+  font-size: 14px;
+}
+
+.InlineTag {
+  padding: 0 2px;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.Link {
+  font-size: 13px;
+  background-color: white;
+  border: 0;
+  padding: 0;
+  text-decoration: underline;
+  color: darkred;
+  cursor: pointer;
+}

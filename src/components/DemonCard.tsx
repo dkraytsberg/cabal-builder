@@ -2,6 +2,7 @@ import React from "react";
 import { EditableDemon } from "../redux/types";
 import StatsTable from "./StatsTable";
 import Ability from "./Ability";
+import { SectionHeader, Link } from "./lib/Typography";
 
 interface DemonCardProps {
   demon: EditableDemon;
@@ -18,27 +19,11 @@ const DemonCard: React.FC<DemonCardProps> = (props) => {
     removeDemon,
   } = props;
 
-  const remove = (e: React.SyntheticEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    removeDemon && removeDemon();
-  };
-
   return (
     <div className="DemonCard">
       <header>
-        <h2>{name}</h2>
-        {removeDemon && (
-          <a
-            role="button"
-            href="#"
-            className="DemonCard__RemoveLink"
-            onClick={remove}
-            data-hide-on-print
-          >
-            remove
-          </a>
-        )}
-
+        <SectionHeader>{name}</SectionHeader>
+        {removeDemon && <Link onClick={removeDemon}>remove</Link>}
         <StatsTable demon={data} />
       </header>
       <br />

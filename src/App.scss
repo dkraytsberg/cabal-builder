@@ -56,39 +56,13 @@ body {
   }
 }
 
-.Ability {
-  i.tag {
-    padding: 0 2px;
-    font-size: 10px;
-    text-transform: uppercase;
-  }
-}
-
 .Leader,
 .DemonCard,
 .PhilosophyInfo {
-  header > h2 {
-    display: inline-block;
-    white-space: nowrap;
-    min-width: fit-content;
-    margin: 1rem 0;
-    font-size: 18px;
-  }
-
-  header > a {
-    font-size: 14px;
-  }
-
   article,
   aside {
     font-size: 14px;
     margin-bottom: 1rem;
-  }
-}
-
-.DemonCard {
-  a.DemonCard__RemoveLink {
-    margin-left: 0.5rem;
   }
 }
 
@@ -129,12 +103,4 @@ body {
       color: white;
     }
   }
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-  width: auto;
-  display: block;
-  background-color: lightgrey;
 }

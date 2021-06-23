@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { selectPhilosopy } from "../redux/selectors";
 import Ability from "./Ability";
+import { MainHeader } from "./lib/Typography";
 
 const PhilosophyInfo: React.FC = () => {
   const { name, specialAbility } = useSelector(selectPhilosopy);
@@ -8,7 +9,7 @@ const PhilosophyInfo: React.FC = () => {
   return (
     <div className="PhilosophyInfo">
       <header>
-        <h1>{name}</h1>
+        <MainHeader>{name}</MainHeader>
       </header>
       <Ability ability={specialAbility} tag="Philosophy" />
     </div>

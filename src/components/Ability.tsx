@@ -1,4 +1,5 @@
 import * as Types from "../types/DemonTypes";
+import { InlineHeader, InlineTag, Link } from "./lib/Typography";
 
 interface AbilityProps {
   ability: Types.Ability;
@@ -6,21 +7,13 @@ interface AbilityProps {
   onRemove?: () => void;
 }
 const Ability: React.FC<AbilityProps> = ({ ability, tag, onRemove }) => {
-  const remove = (e: React.SyntheticEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    onRemove && onRemove();
-  };
-
   return (
     <article className="Ability">
       <div>
-        <b>{ability.name}</b> <i className="tag">{tag}</i> - {ability.text}
+        <InlineHeader>{ability.name}</InlineHeader> <InlineTag>{tag}</InlineTag>{" "}
+        - {ability.text}
       </div>
-      {onRemove && (
-        <a role="button" href="#" onClick={remove} data-hide-on-print>
-          remove
-        </a>
-      )}
+      {onRemove && <Link onClick={onRemove}>remove</Link>}
     </article>
   );
 };

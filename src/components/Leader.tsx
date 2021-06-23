@@ -6,7 +6,6 @@ import {
   leaderRelicMap,
   leaderRelicNames,
 } from "../data/DemonData";
-
 import * as selectors from "../redux/selectors";
 import * as actions from "../redux/actions";
 import {
@@ -20,6 +19,7 @@ import {
 import Select from "./Select";
 import StatsTable from "./StatsTable";
 import Ability from "./Ability";
+import { SectionHeader } from "./lib/Typography";
 
 const Leader: React.FC = () => {
   const leader = useSelector(selectors.selectLeader);
@@ -61,7 +61,7 @@ const Leader: React.FC = () => {
   return (
     <div className="Leader">
       <header>
-        <h2>{name}</h2>
+        <SectionHeader>{name}</SectionHeader>
         <StatsTable demon={leader.data} />
       </header>
       <br />
@@ -69,9 +69,7 @@ const Leader: React.FC = () => {
         {abilities.map((a) => (
           <Ability ability={a} tag="Ability" key={a.name} />
         ))}
-        <article>
-          <Ability ability={leaderBonus} tag="Philosophy bonus" />
-        </article>
+        <Ability ability={leaderBonus} tag="Philosophy bonus" />
 
         {leaderEssence ? (
           <Ability
