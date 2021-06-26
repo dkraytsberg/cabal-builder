@@ -8,12 +8,22 @@ const Roster: React.FC = () => {
   const roster = useSelector(selectors.selectRoster);
 
   const removeDemon = (id: number) => dispatch(actions.removeDemon(id));
+  const renameDemon = (id: number, name: string) =>
+    dispatch(actions.renameRosterDemon(id, name));
+
+  const clearName = (id: number) => dispatch(actions.renameRosterDemon(id, ""));
+
   return (
     <div className="Roster">
       {roster.map((demon) => (
         <DemonCard
           demon={demon}
           removeDemon={() => removeDemon(demon.id)}
+          renameDemon={() => {
+            const name = prompt("Enter a name for your demon");
+            renameDemon(demon.id, name || "");
+          }}
+          clearName={() => clearName(demon.id)}
           key={`${demon.name}-${demon.id}`}
         />
       ))}

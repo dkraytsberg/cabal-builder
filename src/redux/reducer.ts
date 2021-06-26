@@ -155,13 +155,40 @@ const reducer = (state: ReducerState = initialState, action: ReducerAction) => {
       };
     }
 
+    case ActionType.RENAME_ROSTER_DEMON: {
+      const {
+        payload: { id, name },
+      } = action;
+      const newRoster: EditableRosterDemon[] = state.roster.map((demon) =>
+        demon.id === id ? { ...demon, displayName: name } : demon
+      );
+      return {
+        ...state,
+        roster: newRoster,
+      };
+    }
+    case ActionType.RENAME_DEVOUT: {
+      return {
+        ...state,
+        devout: {
+          ...state.devout,
+          displayName: action.payload.name,
+        },
+      };
+    }
+    case ActionType.RENAME_LEADER: {
+      return {
+        ...state,
+        leader: {
+          ...state.leader,
+          displayName: action.payload.name,
+        },
+      };
+    }
+
     default:
       return state;
   }
-
-  // function leaderEsseneceExists(essence: LeaderEssenceName) {
-  //   return state.leader.leaderEssences.some((e) => e.name === essence);
-  // }
 };
 
 export default reducer;

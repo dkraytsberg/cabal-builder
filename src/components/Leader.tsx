@@ -19,7 +19,7 @@ import {
 import Select from "./Select";
 import StatsTable from "./StatsTable";
 import Ability from "./Ability";
-import { SectionHeader } from "./lib/Typography";
+import { Link, SectionHeader } from "./lib/Typography";
 
 const Leader: React.FC = () => {
   const leader = useSelector(selectors.selectLeader);
@@ -33,6 +33,7 @@ const Leader: React.FC = () => {
     leaderEssence,
     secondaryLeaderEssence,
     leaderRelic,
+    displayName,
   } = leader;
 
   const { leaderBonus, name: philosophyName } = currentPhilosopy;
@@ -55,13 +56,27 @@ const Leader: React.FC = () => {
     dispatch(actions.removeSecondaryLeaderEssence());
 
   const removeRelic = () => dispatch(actions.removeLeaderRelic());
+  const renameLeader = () => {
+    const name = prompt("Enter a name for your leader");
+    dispatch(actions.renameLeader(name || ""));
+  };
+
+  const clearName = () => {
+    dispatch(actions.renameLeader(""));
+  };
 
   const showSecondaryEssenceSelect = philosophyName === Brokers;
+
+  const demonDisplayName = displayName ? `${displayName} (${name})` : name;
 
   return (
     <div className="Leader">
       <header>
-        <SectionHeader>{name}</SectionHeader>
+        <SectionHeader>{demonDisplayName}</SectionHeader>
+        &nbsp;
+        <Link onClick={displayName ? clearName : renameLeader}>
+          {displayName ? "clear name" : "name"}
+        </Link>
         <StatsTable demon={leader.data} />
       </header>
       <br />

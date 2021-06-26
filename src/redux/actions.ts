@@ -10,6 +10,9 @@ import {
   REMOVE_LEADER_RELIC_ACTION,
   SET_SECONDARY_LEADER_ESSENCE_ACTION,
   REMOVE_SECONDARY_LEADER_ESSENCE_ACTION,
+  RENAME_ROSTER_DEMON_ACTION,
+  RENAME_DEVOUT_ACTION,
+  RENAME_LEADER_ACTION,
 } from "./types";
 
 import {
@@ -90,5 +93,28 @@ export const removeDemon = (id: number): REMOVE_DEMON_ACTION => ({
   type: ActionType.REMOVE_DEMON,
   payload: {
     id,
+  },
+});
+
+export const renameRosterDemon = (
+  id: number,
+  name: string
+): RENAME_ROSTER_DEMON_ACTION => ({
+  type: ActionType.RENAME_ROSTER_DEMON,
+  payload: {
+    id,
+    name,
+  },
+});
+export const renameDevout = (name: string): RENAME_DEVOUT_ACTION => ({
+  type: ActionType.RENAME_DEVOUT,
+  payload: {
+    name,
+  },
+});
+export const renameLeader = (name: string): RENAME_LEADER_ACTION => ({
+  type: ActionType.RENAME_LEADER,
+  payload: {
+    name,
   },
 });

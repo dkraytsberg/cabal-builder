@@ -22,6 +22,7 @@ import {
 export interface EditableDemon {
   name: DemonName;
   data: DemonData;
+  displayName?: string;
 }
 
 export interface EditableLeaderDemon extends EditableDemon {
@@ -81,6 +82,9 @@ export enum ActionType {
   SET_PHILOSOPHY = "SET_PHILOSOPHY",
   ADD_DEMON = "ADD_DEMON",
   REMOVE_DEMON = "REMOVE_DEMON",
+  RENAME_ROSTER_DEMON = "RENAME_ROSTER_DEMON",
+  RENAME_DEVOUT = "RENAME_DEVOUT",
+  RENAME_LEADER = "RENAME_LEADER",
 }
 
 export interface Action {
@@ -151,6 +155,28 @@ export type REMOVE_DEMON_ACTION = {
   };
 };
 
+export type RENAME_ROSTER_DEMON_ACTION = {
+  type: ActionType.RENAME_ROSTER_DEMON;
+  payload: {
+    id: number;
+    name: string;
+  };
+};
+
+export type RENAME_DEVOUT_ACTION = {
+  type: ActionType.RENAME_DEVOUT;
+  payload: {
+    name: string;
+  };
+};
+
+export type RENAME_LEADER_ACTION = {
+  type: ActionType.RENAME_LEADER;
+  payload: {
+    name: string;
+  };
+};
+
 export type ReducerAction =
   | UPDATE_LEADER_ACTION
   | SET_LEADER_ESSENCE_ACTION
@@ -161,4 +187,7 @@ export type ReducerAction =
   | SET_LEADER_RELIC_ACTION
   | REMOVE_LEADER_RELIC_ACTION
   | ADD_DEMON_ACTION
-  | REMOVE_DEMON_ACTION;
+  | REMOVE_DEMON_ACTION
+  | RENAME_ROSTER_DEMON_ACTION
+  | RENAME_DEVOUT_ACTION
+  | RENAME_LEADER_ACTION;
