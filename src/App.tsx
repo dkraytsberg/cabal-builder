@@ -35,7 +35,7 @@ function App() {
           <Roster />
         </main>
       </div>
-      <ChangeLog />
+      {/* <ChangeLog /> */}
     </div>
   );
 }
