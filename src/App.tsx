@@ -6,6 +6,7 @@ import RosterPicker from "./components/RosterPicker";
 import Roster from "./components/Roster";
 import Leader from "./components/Leader";
 import PhilosophyInfo from "./components/PhilosophyInfo";
+import ChangeLog from "./changelog";
 import "./App.scss";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Roster />
         </main>
       </div>
+      <ChangeLog />
     </div>
   );
 }
