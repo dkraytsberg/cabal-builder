@@ -25,7 +25,7 @@ export const Link: React.FC<{ onClick?: () => void }> = ({
     onClick && onClick();
   };
   return (
-    <button className="Link" role="button" onClick={click} data-hide-on-print>
+    <button className="Link" onClick={click} data-hide-on-print>
       {children}
     </button>
   );
