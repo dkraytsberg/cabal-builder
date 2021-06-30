@@ -1,0 +1,19 @@
+.PageHeader {
+  border-bottom: 2px dashed;
+}
+
+.PageHeader__Link {
+  display: inline-block;
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0.25rem;
+
+  &.selected {
+    background-color: #555;
+    color: white;
+  }
+  &.unselected:hover {
+    background-color: lightgray;
+  }
+}

@@ -1,12 +1,8 @@
 import React from "react";
-import DevoutCard from "./components/DevoutCard";
-import PhilosophySelect from "./components/PhilosophySelect";
-import LeaderSelect from "./components/LeaderSelect";
-import RosterPicker from "./components/RosterPicker";
-import Roster from "./components/Roster";
-import Leader from "./components/Leader";
-import PhilosophyInfo from "./components/PhilosophyInfo";
-import ChangeLog from "./changelog";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import ChangeLog from "./pages/changelog";
+import NewCabalPage from "./pages/NewCabalPage";
+import PageHeader from "./components/PageHeader";
 import "./App.scss";
 
 function App() {
@@ -16,26 +12,20 @@ function App() {
 
   return (
     <div className={`App ${zenMode ? "zen-mode" : ""}`}>
-      <button onClick={toggleZenMode} className="ZenToggle">
-        {zenMode ? "exit zen mode" : "zen mode"}
-      </button>
-      <div className="App__Body">
-        <nav data-hide-on-print>
-          <h3>Leader</h3>
-          <LeaderSelect />
-          <h3>Philosophy</h3>
-          <PhilosophySelect />
-          <h3>Demons</h3>
-          <RosterPicker />
-        </nav>
-        <main>
-          <PhilosophyInfo />
-          <Leader />
-          <DevoutCard />
-          <Roster />
-        </main>
-      </div>
-      {/* <ChangeLog /> */}
+      <BrowserRouter>
+        <PageHeader />
+        <button onClick={toggleZenMode} className="ZenToggle">
+          {zenMode ? "exit zen mode" : "zen mode"}
+        </button>
+        <Switch>
+          <Route path="/changes">
+            <ChangeLog />
+          </Route>
+          <Route path="/">
+            <NewCabalPage />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }

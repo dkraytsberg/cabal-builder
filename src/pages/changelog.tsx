@@ -1,7 +1,19 @@
 export default function ChangeLog() {
   return (
-    <div data-hide-on-print>
-      <br />
+    <div>
+      <h3>6/29/21</h3>
+      <article>
+        <b>added</b>
+        <ul>
+          <li>Routing (you can read this changelog now)</li>
+          <li>On github now!</li>
+        </ul>
+        <b>on deck</b>
+        <ul>
+          <li>Free demon for Lords of Hell</li>
+          <li>Import/Export for roster</li>
+        </ul>
+      </article>
       <h3>6/26/21</h3>
       <article>
         <b>added</b>

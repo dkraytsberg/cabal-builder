@@ -10,8 +10,10 @@ export const InlineHeader: React.FC = ({ children }) => (
   <b className="InlineHeader">{children}</b>
 );
 
-export const InlineTag: React.FC = ({ children }) => (
-  <i className="InlineTag">{children}</i>
+export const InlineTag: React.FC = ({ children, ...props }) => (
+  <i className="InlineTag" {...props}>
+    {children}
+  </i>
 );
 
 export const Link: React.FC<{ onClick?: () => void }> = ({
