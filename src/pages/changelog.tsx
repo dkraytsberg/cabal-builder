@@ -1,6 +1,18 @@
 export default function ChangeLog() {
   return (
     <div>
+      <h3>7/2/21</h3>
+      <article>
+        <b>added</b>
+        <ul>
+          <li>Free demon for Lords of Hell</li>
+        </ul>
+        <b>on deck</b>
+        <ul>
+          <li>Import/Export for roster</li>
+          <li>Post Game effects</li>
+        </ul>
+      </article>
       <h3>6/29/21</h3>
       <article>
         <b>added</b>

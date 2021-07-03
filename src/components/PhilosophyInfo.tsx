@@ -9,27 +9,33 @@ const PhilosophyInfo: React.FC = () => {
 
   const roster = useSelector(selectRoster);
 
-  const { totalCost, mostExpensiveLesserDemon } = roster.reduce(
-    ({ totalCost, mostExpensiveLesserDemon }, demon) => {
+  const {
+    totalCost,
+    mostExpensiveLesserDemon,
+    demonName: mostExpensiveLesserDemonName,
+  } = roster.reduce(
+    ({ totalCost, mostExpensiveLesserDemon, demonName }, demon) => {
       const {
-        data: { cost, type },
+        data: { cost, type, name },
       } = demon;
+      const demonFound =
+        cost > mostExpensiveLesserDemon && type === DemonType.Lesser;
       return {
         totalCost: cost + totalCost,
-        mostExpensiveLesserDemon:
-          cost > mostExpensiveLesserDemon && type === DemonType.Lesser
-            ? cost
-            : mostExpensiveLesserDemon,
+        mostExpensiveLesserDemon: demonFound ? cost : mostExpensiveLesserDemon,
+        demonName: demonFound ? name : demonName,
       };
     },
-    { totalCost: 0, mostExpensiveLesserDemon: 0 }
+    { totalCost: 0, mostExpensiveLesserDemon: 0, demonName: "" }
   );
 
   const costDisplay =
-    name === LordsOfHell && totalCost > mostExpensiveLesserDemon
+    name === LordsOfHell &&
+    totalCost > mostExpensiveLesserDemon &&
+    mostExpensiveLesserDemon > 0
       ? `Cost ${
           totalCost - mostExpensiveLesserDemon
-        } (${totalCost} with free demon)`
+        } (${mostExpensiveLesserDemon} off for free ${mostExpensiveLesserDemonName})`
       : `Cost ${totalCost}`;
 
   return (
@@ -38,9 +44,12 @@ const PhilosophyInfo: React.FC = () => {
         <MainHeader>{name}</MainHeader>
       </header>
       <article>
-        <InlineHeader>{costDisplay}</InlineHeader>
-        &nbsp;&nbsp;
-        <InlineHeader>Cabal Size: {roster.length + 2} / 10</InlineHeader>
+        <div>
+          <InlineHeader>Cabal Size: {roster.length + 2} / 10</InlineHeader>
+        </div>
+        <div>
+          <InlineHeader>{costDisplay}</InlineHeader>
+        </div>
       </article>
       <Ability ability={specialAbility} tag="Philosophy" />
     </div>
